@@ -16,7 +16,7 @@ Install lazybones:
 $ gvm install lazybones
 -----------
 
-Add the entry +"svene/lazybones"+ to your +$HOME/.lazybones/config.groovy+ file:
+Add the following entry to your +$HOME/.lazybones/config.groovy+ file:
 
 -----------
 bintrayRepositories = [
