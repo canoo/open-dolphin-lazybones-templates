@@ -1,0 +1,23 @@
+apply plugin: 'java'
+apply plugin: 'war'
+apply plugin: 'idea'
+apply plugin: 'eclipse'
+
+repositories {
+    jcenter()
+}
+
+group = '$project_group'
+version = '$project_version'
+
+
+repositories {
+     mavenCentral()
+}
+dependencies {
+	providedCompile 'javax:javaee-api:7.0'
+	testCompile 'junit:junit:4.11'
+}
+
+//sourceCompatibility = 1.8
+//targetCompatibility = 1.8

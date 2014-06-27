@@ -1,0 +1,5 @@
+= Open Dolphin Lazybones Template
+
+to setup a standard Open Dolphin based project structure
+
+

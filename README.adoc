@@ -1,0 +1,47 @@
+= OpenDolphin Lazybones templates
+
+These project templates make it very easy to create new OpenDolphin based applications.
+
+== Installation of Lazybones using gvm (Linux, OS/X)
+
+Install gvm:
+
+-----------
+$ curl -s get.gvmtool.net | bash
+-----------
+
+Install lazybones:
+
+-----------
+$ gvm install lazybones
+-----------
+
+Add the entry +"svene/lazybones"+ to your +$HOME/.lazybones/config.groovy+ file:
+
+-----------
+bintrayRepositories = [
+    "opendolphin/lazybones-templates",
+    ...
+-----------
+
+
+== Installation of Lazybones without gvm
+Grab the distribution from https://bintray.com/pkg/show/general/pledbrook/lazybones-templates/lazybones[Bintray], unpack it to a local directory, and then add its +bin+ directory to your PATH environment variable.
+
+== Usage
+
+=== OpenDolphin Template
+In an arbitrary directory execute +lazybones create opendolphin +first_opendolphin+ which will create the folder +first_opendolphin+ and expand the template into it.
+The folder contains a +build.gradle+ file.
+
+== Development
+
+* Make a change in a template, e.g. +templates/opendolphin+
+* In top folder execute +./gradlew installTemplateOpenDolphin+ which will install the +opendolphin+ template into +~/.lazybones/templates/opendolphin-0.0.1.zip+
+* In an arbitrary directory execute +lazybones create opendolphin 0.0.1 javaee7+ which will create the folder +opendolphin+ and expand the template into it.
+* Repeat the previous steps until you are satisfied with the result
+
+== Publishing
+* In the top level folder invoke +./gradlew publishTemplateOpenDolphin+ . Note: the first time a package needs to be created with the bintray Web-GUI in the 'lazybones-templates' repository with a name ending in '-template' (for this example 'open-dolphin-template').
+
+
