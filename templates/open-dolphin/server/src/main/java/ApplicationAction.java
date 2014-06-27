@@ -1,4 +1,4 @@
-package ${packagename};
+package ${project_package_name};
 
 import org.opendolphin.core.comm.Command;
 import org.opendolphin.core.server.action.DolphinServerAction;

@@ -5,7 +5,7 @@
 
     <servlet>
         <servlet-name>applicationServlet</servlet-name>
-        <servlet-class>${packagename}.servlet.ApplicationServlet</servlet-class>
+        <servlet-class>${project_package_name}.servlet.ApplicationServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>

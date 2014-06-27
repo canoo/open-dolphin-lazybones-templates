@@ -1,4 +1,4 @@
-package ${packagename};
+package ${project_package_name};
 
 /**
  * Place for shared information among client and server. Typically identifiers for models, attributes and actions.

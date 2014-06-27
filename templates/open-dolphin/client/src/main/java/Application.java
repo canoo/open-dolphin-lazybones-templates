@@ -1,4 +1,4 @@
-package ${packagename};
+package ${project_package_name};
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -17,7 +17,7 @@ import org.opendolphin.core.client.comm.OnFinishedHandlerAdapter;
 
 import java.util.List;
 
-import static ${packagename}.ApplicationConstants.*;
+import static ${project_package_name}.ApplicationConstants.*;
 
 
 public class Application extends javafx.application.Application {

@@ -1,4 +1,4 @@
-package ${packagename};
+package ${project_package_name};
 
 import org.opendolphin.core.client.comm.JavaFXUiThreadHandler;
 import org.opendolphin.core.comm.DefaultInMemoryConfig;
@@ -9,8 +9,8 @@ public class ApplicationInMemoryStarter {
         config.getServerDolphin().registerDefaultActions();
         config.getClientDolphin().getClientConnector().setUiThreadHandler(new JavaFXUiThreadHandler());
         registerApplicationActions(config);
-        ${packagename}.Application.clientDolphin = config.getClientDolphin();
-        javafx.application.Application.launch(${packagename}.Application.class);
+        ${project_package_name}.Application.clientDolphin = config.getClientDolphin();
+        javafx.application.Application.launch(${project_package_name}.Application.class);
     }
 
     private static void registerApplicationActions(DefaultInMemoryConfig config) {

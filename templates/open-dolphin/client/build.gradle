@@ -3,9 +3,9 @@ apply plugin: 'application'
 dependencies {
     compile project.files("${System.properties['java.home']}/lib/jfxrt.jar") // TODO: remove
     compile project(':shared')
-    compile "org.open-dolphin:dolphin-client-javafx:$dolphinVersion"
+    compile "org.open-dolphin:dolphin-client-javafx:\$dolphinVersion"
     compile "org.codehaus.groovyfx:groovyfx:0.2" // TODO: update
-    compile "org.open-dolphin:dolphin-client:$dolphinVersion"
+    compile "org.open-dolphin:dolphin-client:\${dolphinVersion}"
 }
 
-mainClassName = '${packagename}.ApplicationStarter'
+mainClassName = '${project_package_name}.ApplicationStarter'

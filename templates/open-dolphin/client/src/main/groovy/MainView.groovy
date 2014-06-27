@@ -1,4 +1,4 @@
-package ${packagename}
+package ${project_package_name}
 
 import javafx.collections.ObservableList
 import javafx.collections.FXCollections
@@ -12,7 +12,7 @@ class MainView {
 
 		start { app ->
 			def sgb = delegate
-			stage title:'${projectName}', {
+			stage title:'${project_name}', {
 				scene(fill: BLACK, width: 650, height: 250) {
 					hbox(padding: 60) {
 						text(text: 'Open', font: '80pt sanserif') {

@@ -1,23 +1,30 @@
-apply plugin: 'java'
-apply plugin: 'war'
 apply plugin: 'idea'
 apply plugin: 'eclipse'
+apply plugin: 'application'
 
 repositories {
-    jcenter()
+    mavenCentral()
+    mavenLocal()
 }
 
-group = '$project_group'
-version = '$project_version'
+subprojects {
+    apply plugin: 'java'
+    apply plugin: 'groovy'
 
-
-repositories {
-     mavenCentral()
+    repositories {
+        mavenCentral()
+        mavenLocal()
+    }
+	dependencies {
+		compile "org.codehaus.groovy:groovy-all:\$groovyAllVersion"
+	}
 }
+
+
 dependencies {
-	providedCompile 'javax:javaee-api:7.0'
-	testCompile 'junit:junit:4.11'
+    compile project(':combined')
 }
 
-//sourceCompatibility = 1.8
-//targetCompatibility = 1.8
+task 'runWithGroovy' (dependsOn: ':combined:run') {
+}
+

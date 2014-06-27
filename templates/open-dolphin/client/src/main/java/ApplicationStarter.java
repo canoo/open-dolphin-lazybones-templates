@@ -1,4 +1,4 @@
-package ${packagename};
+package ${project_package_name};
 
 import javafx.application.Application;
 import org.opendolphin.core.client.ClientDolphin;
@@ -18,8 +18,8 @@ public class ApplicationStarter {
         clientDolphin.setClientConnector(connector);
 
 
-        ${packagename}.Application.clientDolphin = clientDolphin;
-        Application.launch(${packagename}.Application.class);
+        ${project_package_name}.Application.clientDolphin = clientDolphin;
+        Application.launch(${project_package_name}.Application.class);
     }
 
     private static ClientConnector createConnector(ClientDolphin clientDolphin) {

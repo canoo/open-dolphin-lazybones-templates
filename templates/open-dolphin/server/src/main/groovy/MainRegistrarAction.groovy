@@ -1,4 +1,4 @@
-package ${packagename}
+package ${project_package_name}
 
 import org.opendolphin.core.server.DTO
 import org.opendolphin.core.server.Slot

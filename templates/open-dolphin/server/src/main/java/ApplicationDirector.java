@@ -1,4 +1,4 @@
-package ${packagename};
+package ${project_package_name};
 
 import org.opendolphin.core.server.action.DolphinServerAction;
 import org.opendolphin.core.server.comm.ActionRegistry;
