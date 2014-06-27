@@ -21,20 +21,16 @@ processTemplates 'settings.gradle', props
 
 List<String> modules = ['client', 'server', 'shared', 'combined']
 
-//processTemplates "client/build.gradle", props
-
 modules.each { module ->
 
 	
 	if (new File(projectDir, "$module/build.gradle").exists() ) {
-		println "processing $module/build.gradle"
 		processTemplates "$module/build.gradle", props
 	}
 
 	List<String> srcMainEntries = [ "$module/src/main/java", "$module/src/main/groovy" ]
 
 	srcMainEntries.each { String relPath ->
-		println "--> ${relPath}" // e.g.: 'client/src/main/java'
 		processTemplates "${relPath}/**/*", props
 
 		File sme = new File(projectDir, relPath)
