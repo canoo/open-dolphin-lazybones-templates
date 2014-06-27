@@ -28,7 +28,7 @@ buildscript {
 apply plugin: 'lazybones-templates'
 
 lazybones {
-    repositoryUrl = 'https://api.bintray.com/content/svene/lazybones'
+    repositoryUrl = 'https://api.bintray.com/content/opendolphin/lazybones-templates'
     repositoryUsername = project.bintrayUsername
     repositoryApiKey = project.bintrayApiKey
 }
