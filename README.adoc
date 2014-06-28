@@ -16,12 +16,13 @@ Install lazybones:
 $ gvm install lazybones
 -----------
 
-Add the following entry to your +$HOME/.lazybones/config.groovy+ file:
+Add the following entry to your +$HOME/.lazybones/config.groovy+ file
+(create the file if it isn't there):
 
 -----------
 bintrayRepositories = [
-    "opendolphin/lazybones-templates",
-    ...
+    "opendolphin/lazybones-templates"
+]
 -----------
 
 
@@ -31,7 +32,7 @@ Grab the distribution from https://bintray.com/pkg/show/general/pledbrook/lazybo
 == Usage
 
 === OpenDolphin Template
-In an arbitrary directory execute +lazybones create opendolphin +first_opendolphin+ which will create the folder +first_opendolphin+ and expand the template into it.
+In an arbitrary directory execute +lazybones create open-dolphin first_opendolphin+ which will create the folder +first_opendolphin+ and expand the template into it.
 The folder contains a +build.gradle+ file.
 
 You can run the application in two modes, the 'develop/test/debug' mode and the 'remote' mode.
