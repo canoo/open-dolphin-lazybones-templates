@@ -1,7 +1,6 @@
 import uk.co.cacoethes.util.NameType
-import java.nio.file.Path
-import java.nio.file.Paths
-import java.nio.file.Files
+import org.apache.commons.io.FileUtils
+import org.apache.commons.io.FilenameUtils
 
 Map props = [:]
 File projectDir = projectDir instanceof File ? projectDir : new File(String.valueOf(projectDir))
@@ -35,14 +34,16 @@ modules.each { module ->
 	srcMainEntries.each { String relPath ->
 		processTemplates "${relPath}/**/*", props
 
-		File sme = new File(projectDir, relPath)
-
-		File oldFolder = sme
+		File oldFolder = new File(projectDir, relPath)
 		File newFolder = new File(oldFolder, packagePath)
 
 		oldFolder.eachFile { File file ->
-			if (! newFolder.exists() ) newFolder.mkdirs()
-			Files.move(file.toPath(), Paths.get(newFolder.absolutePath, file.name) )
+			if ( file.isDirectory() ) {
+				FileUtils.moveDirectoryToDirectory(file, newFolder, true )
+			}
+			else {
+				FileUtils.moveFileToDirectory(file, newFolder, true )
+			}
 		}
 
 	}
