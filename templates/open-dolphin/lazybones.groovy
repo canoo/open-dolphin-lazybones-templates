@@ -5,6 +5,7 @@ import java.nio.file.Files
 
 Map props = [:]
 File projectDir = projectDir instanceof File ? projectDir : new File(String.valueOf(projectDir))
+props.project_dir_name = projectDir.name
 props.project_name = transformText(projectDir.name, from: NameType.HYPHENATED, to: NameType.PROPERTY)
 
 props.project_group = ask2('group', 'org.group')
@@ -15,6 +16,7 @@ String packagePath = props.project_package_name.replace('.' as char, '/' as char
 
 props.project_capitalized_name = props.project_name.capitalize()
 
+processTemplates 'README.adoc', props
 processTemplates 'build.gradle', props
 processTemplates 'gradle.properties', props
 processTemplates 'settings.gradle', props

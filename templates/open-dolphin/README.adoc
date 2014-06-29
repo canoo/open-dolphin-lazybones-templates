@@ -1,5 +1,17 @@
-= Open Dolphin Lazybones Template
+==============================
+New Open Dolphin Project got created.
 
-to setup a standard Open Dolphin based project structure
+Next:
 
+- cd $project_dir_name
+- ./gradlew :combined:run
 
+  which should bring up a window with a button. When you click it you should see the OpenDolphin communication messages in the terminal.
+
+Now you are set up to develop your Open Dolphin Application !
+
+You can find more info here:
+
+- https://github.com/canoo/open-dolphin-lazybones-templates
+- http://www.open-dolphin.org/
+==============================
