@@ -1,0 +1,2 @@
+
+if ( shared_dependency_mode != 'binary' ) include '../dolphin-shared-java'
