@@ -1,8 +1,9 @@
-include 'shared'
-include 'server'
-include 'server-app'
-include 'client'
-include 'combined'
 
+new File(".").eachDir() { dir ->
+	if ( ! ['gradle'].contains(dir.name) && !dir.name.startsWith('.')) {
+		println "*** \${dir.name}"
+		include "\${dir.name}"
+	}
+}
 rootProject.name = '${project_name}'
 
