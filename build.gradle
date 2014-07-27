@@ -31,5 +31,7 @@ lazybones {
     repositoryUrl = 'https://api.bintray.com/content/opendolphin/lazybones-templates'
     repositoryUsername = project.bintrayUsername
     repositoryApiKey = project.bintrayApiKey
+
+    template "open-dolphin" includes "dolphin-shared-java"
 }
 

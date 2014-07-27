@@ -1,0 +1,15 @@
+== Template installation
+in root folder:
+
+[source,shell]
+----
+./gradlew installTemplateDolphinServerJava
+----
+
+== Template usage
+in an empty folder:
+
+[source,shell]
+----
+lazybones create dolphin-server-java 0.0.1 ods
+----
