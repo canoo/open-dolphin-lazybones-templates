@@ -1,8 +1,8 @@
-package ${project_package_name}.servlet;
+package ${PKG}.servlet;
 
 import org.opendolphin.core.server.ServerDolphin;
 import org.opendolphin.server.adapter.DolphinServlet;
-import ${project_package_name}.ApplicationDirector;
+import ${PKG}.ApplicationDirector;
 
 /**
  * For real server mode, this servlet acts as entry point for all communication.

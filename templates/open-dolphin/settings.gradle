@@ -1,6 +1,6 @@
 
 new File(".").eachDir() { dir ->
-	if ( ! ['gradle'].contains(dir.name) && !dir.name.startsWith('.')) {
+	if ( ! ['gradle'].contains(dir.name) && ! ['.', 'org-'].any { it.startsWith(it) } {
 		println "*** \${dir.name}"
 		include "\${dir.name}"
 	}

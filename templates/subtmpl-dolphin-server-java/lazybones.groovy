@@ -4,9 +4,9 @@ import org.apache.commons.io.FilenameUtils
 import static org.apache.commons.io.FilenameUtils.concat
 
 def params = [:]
-params.pkg = "${parentParams.packageName}"
+params.PKG = "${parentParams.packageName}"
 
-params.moduleName = ask2('moduleName', 'shared')
+params.moduleName = ask2('moduleName', 'server')
 
 // Pass in parameters from the project template
 params.parentGroup = parentParams.group
@@ -16,17 +16,28 @@ params.VERSION = parentParams.version
 
 processTemplates("content/**/*", params)
 
-def pkgPath = params.pkg.replace('.' as char, '/' as char)
+def pkgPath = params.PKG.replace('.' as char, '/' as char)
 
 // Copy 'src' folder:
-FileUtils.moveDirectoryToDirectory(new File(templateDir, 'content/src'), new File(params.moduleName), true )
+println "projectDir: $projectDir"
+File targetDir = new File(params.moduleName, 'src/main/java')
+File targetPath = new File(targetDir, pkgPath)
+targetPath.mkdirs()
+
+File sourcesDir = new File(templateDir, 'content/src/main/java')
+sourcesDir.eachFile { File file ->
+	String s = "${targetPath.absolutePath}/${file.name}"
+	println "  s: ${s}"
+   file.renameTo(s)
+}
+//FileUtils.moveDirectoryToDirectory(new File(templateDir, 'content/src/main/java'), new File(concat(params.moduleName, concat('src/main', pkgPath))), true )
 
 // Copy files in root folder:
-['build.gradle', 'gradle.properties'].each { fn ->
+['build.gradle'].each { fn ->
 	FileUtils.copyFileToDirectory(new File(templateDir, 'content/' + fn), new File(params.moduleName))
 }
-
 
 def ask2(key, proposal) {
 	ask("Define value for '$key' [$proposal]: ", proposal, key)
 }
+

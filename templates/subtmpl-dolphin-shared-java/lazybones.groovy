@@ -19,7 +19,7 @@ processTemplates("content/**/*", params)
 def pkgPath = params.pkg.replace('.' as char, '/' as char)
 
 // Copy 'src' folder:
-FileUtils.moveDirectoryToDirectory(new File(templateDir, 'content/src'), new File(params.moduleName), true )
+FileUtils.moveDirectoryToDirectory(new File(templateDir, 'content/src'), new File(concat(params.moduleName, pkgPath), true )
 
 // Copy files in root folder:
 ['build.gradle', 'gradle.properties'].each { fn ->

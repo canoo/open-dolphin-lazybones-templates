@@ -2,8 +2,8 @@ apply plugin: 'java'
 apply plugin: 'maven'
 apply plugin: 'eclipse'
 
-group = '${project_group}'
-version = '${project_version}'
+group = '${GROUP}'
+version = '${VERSION}'
 
 
 repositories {
@@ -11,7 +11,7 @@ repositories {
 }
 
 dependencies {
-compile ( (shared_dependency_mode == 'binary') ? 'org.svenehrke.moduleapp.lib1:lib1:0.0.1-SNAPSHOT' : project('../dolphin-shared-java') )
+	compile project(':shared')
     compile "org.open-dolphin:dolphin-server:\$dolphinVersion"
 }
 
