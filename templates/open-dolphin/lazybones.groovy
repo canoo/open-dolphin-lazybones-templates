@@ -20,7 +20,7 @@ processTemplates 'build.gradle', props
 processTemplates 'gradle.properties', props
 processTemplates 'settings.gradle', props
 
-List<String> modules = ['client', 'server', 'shared', 'combined']
+List<String> modules = ['client', 'server', 'org-shared', 'combined']
 
 modules.each { module ->
 
