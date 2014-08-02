@@ -19,7 +19,16 @@ processTemplates("content/**/*", params)
 def pkgPath = params.pkg.replace('.' as char, '/' as char)
 
 // Copy 'src' folder:
-FileUtils.moveDirectoryToDirectory(new File(templateDir, 'content/src'), new File(concat(params.moduleName, pkgPath), true )
+File targetDir = new File(params.moduleName, 'src/main/java')
+File targetPath = new File(targetDir, pkgPath)
+targetPath.mkdirs()
+
+File sourcesDir = new File(templateDir, 'content/src/main/java')
+sourcesDir.eachFile { File file ->
+   file.renameTo("${targetPath.absolutePath}/${file.name}")
+}
+
+//FileUtils.moveDirectoryToDirectory(new File(templateDir, 'content/src'), new File(concat(params.moduleName, pkgPath)), true )
 
 // Copy files in root folder:
 ['build.gradle', 'gradle.properties'].each { fn ->

@@ -5,6 +5,8 @@ import org.opendolphin.core.server.action.DolphinServerAction;
 import org.opendolphin.core.server.comm.ActionRegistry;
 import org.opendolphin.core.server.comm.CommandHandler;
 
+import static ${PKG}.ApplicationConstants.*;
+
 import java.util.List;
 
 public class ApplicationAction extends DolphinServerAction{

@@ -17,14 +17,9 @@ subprojects {
     }
 	dependencies {
 		compile "org.codehaus.groovy:groovy-all:\$groovyAllVersion"
+        project(':shared')
+        //project(:server)
 	}
 }
 
-
-dependencies {
-    compile project(':combined')
-}
-
-task 'runWithGroovy' (dependsOn: ':combined:run') {
-}
 
