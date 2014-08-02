@@ -5,7 +5,7 @@ import org.opendolphin.core.server.action.DolphinServerAction;
 import org.opendolphin.core.server.comm.ActionRegistry;
 import org.opendolphin.core.server.comm.CommandHandler;
 
-import static ${PKG}.ApplicationConstants.*;
+import static ${PKG}.ApplicationConstants.*; // TODO: dependency to module 'shared'
 
 import java.util.List;
 
