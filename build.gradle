@@ -32,6 +32,6 @@ lazybones {
     repositoryUsername = project.bintrayUsername
     repositoryApiKey = project.bintrayApiKey
 
-    template "open-dolphin" includes 'dolphin-shared-java', 'dolphin-server-java', 'dolphin-client-javafx-java', 'dolphin-combined-java'
+    template "open-dolphin" includes 'dolphin-shared-java', 'dolphin-server-java', 'dolphin-client-javafx-java', 'dolphin-combined-java', 'dolphin-server-webapp'
 }
 
