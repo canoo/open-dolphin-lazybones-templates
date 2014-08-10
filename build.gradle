@@ -33,7 +33,8 @@ lazybones {
     repositoryApiKey = project.bintrayApiKey
 
     def subtemplates = [
-        'dolphin-shared-java', 'dolphin-server-java', 'dolphin-client-javafx-java', 'dolphin-combined-java', 'dolphin-server-webapp', 'dolphin-client-javafx-groovy'
+        'dolphin-shared-java', 'dolphin-server-java', 'dolphin-client-javafx-java', 'dolphin-combined-java', 'dolphin-server-webapp',
+        'dolphin-shared-groovy', 'dolphin-client-javafx-groovy', 
         ]
 
     template "open-dolphin" includes subtemplates.toArray(new String[subtemplates.size()])

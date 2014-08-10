@@ -1,0 +1,4 @@
+package ${PKG}
+
+class Constants {
+}
