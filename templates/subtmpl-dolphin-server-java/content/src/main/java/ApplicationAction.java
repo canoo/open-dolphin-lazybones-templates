@@ -10,10 +10,13 @@ import static ${PKG}.ApplicationConstants.*; // TODO: dependency to module 'shar
 import java.util.List;
 
 public class ApplicationAction extends DolphinServerAction{
+
     public void registerIn(ActionRegistry actionRegistry) {
-        actionRegistry.register(ApplicationConstants.COMMAND_ID, new CommandHandler<Command>() {
+
+        actionRegistry.register(ApplicationConstants.COMMAND_GREET, new CommandHandler<Command>() {
             public void handleCommand(Command command, List<Command> response) {
                 System.out.println("Server reached.");
+				getServerDolphin().getAt(PM_APP).getAt(ATT_GREETING).setValue("Hey " + getServerDolphin().getAt(PM_APP).getAt(ATT_NAME).getValue() + " !");
             }
         });
 
