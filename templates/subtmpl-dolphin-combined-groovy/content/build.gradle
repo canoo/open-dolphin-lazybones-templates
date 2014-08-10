@@ -1,5 +1,7 @@
 apply plugin: 'application'
 
+mainClassName = '${PKG}.start'
+
 dependencies {
     compile project(':client')
     compile project(':server')
@@ -7,10 +9,3 @@ dependencies {
     testCompile "junit:junit:4.11"
 }
 
-mainClassName = '${PKG}.ApplicationInMemoryStarter'
-
-gradle.taskGraph.whenReady { tg ->
-	if (tg.hasTask(':runWithGroovy')) {
-		project.setProperty('mainClassName', '${PKG}.start')
-	}
-}

@@ -1,3 +1,5 @@
+= Development
+
 == Template installation
 in root folder:
 
@@ -17,3 +19,15 @@ lazybones create dolphin-server-java 0.0.1 ods
 
 lb create -Pgroup=org.group -Pversion=0.1.0-SNAPSHOT -PpackageName=org.group open-dolphin 0.0.4 myod && cd myod
 lb --logLevel=FINE generate -PmoduleName=server dolphin-server-java
+
+
+= Usage
+
+== Create Project Folder
+
+* lazybones create open-dolphin 0.0.4 hello_dolphin
+* cd hello_dolphin
+* ./setup_for_java.sh or ./setup_for_groovy.sh
+
+== Run the application:
+./gradlew :combined:run
