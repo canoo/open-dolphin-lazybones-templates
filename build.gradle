@@ -31,5 +31,12 @@ lazybones {
     repositoryUrl = 'https://api.bintray.com/content/opendolphin/lazybones-templates'
     repositoryUsername = project.bintrayUsername
     repositoryApiKey = project.bintrayApiKey
+
+    def subtemplates = [
+        'dolphin-shared-java', 'dolphin-server-java', 'dolphin-client-javafx-java', 'dolphin-combined-java', 'dolphin-server-webapp',
+        'dolphin-shared-groovy', 'dolphin-server-groovy', 'dolphin-client-javafx-groovy', 'dolphin-combined-groovy'
+        ]
+
+    template "open-dolphin" includes subtemplates.toArray(new String[subtemplates.size()])
 }
 
