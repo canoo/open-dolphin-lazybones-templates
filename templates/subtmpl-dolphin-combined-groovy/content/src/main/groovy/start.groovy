@@ -1,9 +1,9 @@
-package ${project_package_name}
+package ${PKG}
 
 import org.opendolphin.core.client.comm.JavaFXUiThreadHandler
 import org.opendolphin.core.comm.DefaultInMemoryConfig
-import ${project_package_name}.MainRegistrarAction
-import ${project_package_name}.MainView
+import ${PKG}.MainRegistrarAction
+import ${PKG}.MainView
 
 def config = new DefaultInMemoryConfig()
 config.clientDolphin.clientConnector.uiThreadHandler = new JavaFXUiThreadHandler()

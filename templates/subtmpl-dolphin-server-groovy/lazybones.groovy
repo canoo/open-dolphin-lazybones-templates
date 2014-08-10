@@ -6,7 +6,7 @@ import static org.apache.commons.io.FilenameUtils.concat
 def params = [:]
 params.PKG = "${parentParams.packageName}"
 
-params.moduleName = ask2('moduleName', 'javafx-client')
+params.moduleName = ask2('moduleName', 'client')
 
 // Pass in parameters from the project template
 params.parentGroup = parentParams.group

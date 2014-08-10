@@ -7,10 +7,10 @@ dependencies {
     testCompile "junit:junit:4.11"
 }
 
-mainClassName = '${project_package_name}.ApplicationInMemoryStarter'
+mainClassName = '${PKG}.ApplicationInMemoryStarter'
 
 gradle.taskGraph.whenReady { tg ->
 	if (tg.hasTask(':runWithGroovy')) {
-		project.setProperty('mainClassName', '${project_package_name}.start')
+		project.setProperty('mainClassName', '${PKG}.start')
 	}
 }
