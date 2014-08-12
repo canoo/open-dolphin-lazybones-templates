@@ -3,6 +3,7 @@ apply plugin : 'jetty'
 
 dependencies {
     compile project(':server')
+    compile project(':shared')
 }
 
 war {
@@ -12,5 +13,4 @@ war {
 jettyRun {
     contextPath = 'appContext'
 }
-
 

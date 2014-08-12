@@ -8,8 +8,19 @@
         <servlet-class>${PKG}.servlet.ApplicationServlet</servlet-class>
     </servlet>
 
+    <servlet>
+        <servlet-name>InvalidationServlet</servlet-name>
+        <servlet-class>${PKG}.servlet.InvalidationServlet</servlet-class>
+    </servlet>
+
     <servlet-mapping>
         <servlet-name>applicationServlet</servlet-name>
-        <url-pattern>/applicationServlet/</url-pattern>
+        <url-pattern>/dolphin/</url-pattern>
     </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>InvalidationServlet</servlet-name>
+        <url-pattern>/dolphin/invalidate</url-pattern>
+    </servlet-mapping>
+
 </web-app>

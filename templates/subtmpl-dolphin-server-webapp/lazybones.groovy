@@ -14,7 +14,9 @@ params.parentVersion = parentParams.version
 params.GROUP = parentParams.group
 params.VERSION = parentParams.version
 
-processTemplates("content/**/*", params)
+processTemplates("content/src/main/webapp/WEB-INF/web.xml", params)
+//processTemplates("content/src/main/webapp/**/*.jsp", params)
+processTemplates("content/build.gradle", params)
 
 def pkgPath = params.PKG.replace('.' as char, '/' as char)
 
