@@ -5,6 +5,11 @@ import static org.apache.commons.io.FilenameUtils.concat
 
 def params = [:]
 params.PKG = "${parentParams.packageName}"
+params._S_EV = "<%"
+params._E_EV = "%>"
+params.'_<%' = "%>"
+params.'_%>' = "%>"
+params.'_<%=' = "<%="
 
 params.moduleName = ask2('moduleName', 'webapp')
 
@@ -15,7 +20,7 @@ params.GROUP = parentParams.group
 params.VERSION = parentParams.version
 
 processTemplates("content/src/main/webapp/WEB-INF/web.xml", params)
-//processTemplates("content/src/main/webapp/**/*.jsp", params)
+processTemplates("content/src/main/webapp/**/*.jsp", params)
 processTemplates("content/build.gradle", params)
 
 def pkgPath = params.PKG.replace('.' as char, '/' as char)

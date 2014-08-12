@@ -1,18 +1,4 @@
-<%--
-<%@ page import="org.group.ApplicationConstants.PM_APP" %>
-<%@ page import="org.group.ApplicationConstants.ATT_NAME" %>
-<%@ page import="org.group.ApplicationConstants.ATT_GREETING" %>
-<%@ page import="org.group.ApplicationConstants.CMD_GREET" %>
---%>
-
-<%
-    final String PM_APP = "org.group.ApplicationConstants.APP";
-    final String ATT_NAME = "ATT_NAME";
-    final String ATT_GREETING = "ATT_GREETING";
-
-    final String CMD_GREET = "org.group.ApplicationConstants.CMD_GREET";
-
-%>
+${'<%'}@ page import="${PKG}.ApplicationConstants" ${'%>'}
 
 <!DOCTYPE html>
 <html>
@@ -24,19 +10,19 @@
 	<link rel="stylesheet" href="bootstrap/bootstrap-3.1.1-dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="bootstrap/bootstrap-3.1.1-dist/css/bootstrap-theme.min.css">
 
-    <title></title>
+    <title>Hello Dolphin</title>
     <!-- refer to OpenDolphin, see also http://open-dolphin.org/dolphin_website/Download.html -->
     <script data-main="js/dolphin/" src="libs/require.js"></script>
 
     
     <script>
         require([ 'opendolphin' ], function (dol) {
-            var dolphin = dol.dolphin("<%=application.getContextPath()%>/dolphin/", true);
+            var dolphin = dol.dolphin("${'<%='}application.getContextPath()${'%>'}/dolphin/", true);
 
-            var att_name = dolphin.attribute("<%=ATT_NAME%>", undefined, "");
-            var att_greeting = dolphin.attribute("<%=ATT_GREETING%>", undefined, "");
+            var att_name = dolphin.attribute("${'<%='}ApplicationConstants.ATT_NAME${'%>'}", undefined, "");
+            var att_greeting = dolphin.attribute("${'<%='}ApplicationConstants.ATT_GREETING${'%>'}", undefined, "");
 
-            var pm = dolphin.presentationModel("<%=PM_APP%>", undefined, att_name, att_greeting);
+            var pm = dolphin.presentationModel("${'<%='}ApplicationConstants.PM_APP${'%>'}", undefined, att_name, att_greeting);
 
 
             // Get hold to widgets:
@@ -68,7 +54,7 @@
 
 
             greetButton.onclick = function () {
-                dolphin.send("<%=CMD_GREET%>");
+                dolphin.send("${'<%='}ApplicationConstants.COMMAND_GREET${'%>'}");
             };
 
 			// Initial Data:
