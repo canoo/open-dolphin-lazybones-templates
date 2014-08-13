@@ -24,7 +24,7 @@ public class ApplicationStarter {
 
     private static ClientConnector createConnector(ClientDolphin clientDolphin) {
         //running real client server mode.
-        HttpClientConnector connector = new HttpClientConnector(clientDolphin, "http://localhost:8080/appContext/applicationServlet/");
+        HttpClientConnector connector = new HttpClientConnector(clientDolphin, "http://localhost:8080/appContext/dolphin/");
         connector.setCodec(new JsonCodec());
         return connector;
     }
