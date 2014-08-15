@@ -1,6 +1,6 @@
-= OpenDolphin Lazybones templates
+= Open-Dolphin Lazybones templates
 
-These project templates make it very easy to create new OpenDolphin based applications.
+These project templates make it very easy to create new Open-Dolphin applications.
 
 == Installation of Lazybones using gvm (Linux, OS/X)
 
@@ -31,29 +31,89 @@ Grab the distribution from https://bintray.com/pkg/show/general/pledbrook/lazybo
 
 == Usage
 
-=== OpenDolphin Template
-In an arbitrary directory execute +lazybones create open-dolphin first_opendolphin+ which will create the folder +first_opendolphin+ and expand the template into it.
-The folder contains a +build.gradle+ file.
+The Open-Dolphin templates are comprised of a main template which creates a multi-module gradle project and several subtemplates. You can choose whether your project should be java or groovy based. You may also choose which technology you would like to use. Currently there is a subtemplate for JavaFX and a HTML5 frontend
+is included in the _server_ submodule. Here is a list of all currently available subtemplates:
 
-You can run the application in two modes, the 'develop/test/debug' mode and the 'remote' mode.
+* dolphin-shared-java
+* dolphin-server-java
+* dolphin-client-javafx-java
+* dolphin-combined-java
+* dolphin-server-webapp
+* dolphin-shared-groovy
+* dolphin-server-groovy
+* dolphin-client-javafx-groovy
+* dolphin-combined-groovy
 
-To run it in develop mode invoke:
+The following sections will help you to setup a new Open-Dolphin project. You will end up with a simple hello world GUI connected to the server.
+
+=== Run Main Template
+In an arbitrary directory execute +lazybones create open-dolphin hello_dolphin+ which will create the folder +hello_dolphin+ and expand the template into it.
+Confirm the questions for _group_, _version_ and _packageName_ with the +enter+ key or give it the values you like.
+Then cd into the _hello_dolphin_ folder and you should see the familiar files of a gradle based project:
+
+[source,shell]
+----
+build.gradle
+gradle
+gradle.properties
+gradlew
+gradlew.bat
+LICENSE
+README.adoc
+settings.gradle
+setup_for_groovy.sh #<1>
+setup_for_java.sh #<2>
+----
+
+Next we need to setup the folders for the _client_, _server_, _combined_, _shared_ and _webapp_ modules. The shell scripts
+[conum,data-value=1]_1_ and [conum,data-alue=2]_2_ will help you to make this in one go.
+
+=== Run Subtemplates
+
+if you would like to work in java call +setup_for_java.sh+. For groovy call +setup_for_groovy.sh+. This will create five new folders for the submodules:
+
+[source,shell]
+----
+build.gradle
+client #<1>
+combined #<2>
+gradle
+gradle.properties
+gradlew
+gradlew.bat
+LICENSE
+README.adoc
+server #<3>
+settings.gradle
+setup_for_groovy.sh
+setup_for_java.sh
+shared #<4>
+webapp #<5>
+----
+
+
+== Running the application
+
+You can run the application in two modes: the _development_ mode and the _remote_ mode.
+
+=== Development mode
+
+To run it in _development_ mode invoke:
 
 -----
 	./gradlew :combined:run
 -----
 
-which should show a small window with a button on it. If you click it you should see some messages
-on the terminal illustrating the commands which are sent from client to server and vice versa.
+which shows the hello dolphin GUI with an entry field for the name and _Greet_ button on it. Clicking the button will show a _Hey Duke_ greeting:
+
+image::doc/hello_dolphin_javafx.png[]
+
+On the terminal you can watch the commands which are sent forth and back between client and server.
 
 
-To run int in groovy and development mode invoke:
+=== Remote mode
 
------
-	./gradlew runWithGroovy
------
-
-To run it in remote mode invoke:
+To run it in _remote_ mode invoke:
 
 -----
 	./gradlew jettyRun
@@ -67,13 +127,47 @@ and in a second terminal
 
 Note that the client and the server communication messages now appear in the client respectively server terminal.
 
-To continue have a look at the Open Dolphin tutorial of https://github.com/canoo/DolphinJumpStart[DolphinJumpStart]
 
-== Development
+=== HTML5 Frontend
 
-* Make a change in a template, e.g. +templates/opendolphin+
-* In top folder execute +./gradlew installTemplateOpenDolphin+ which will install the +opendolphin+ template into +~/.lazybones/templates/opendolphin-0.0.1.zip+
-* In an arbitrary directory execute +lazybones create opendolphin 0.0.1 javaee7+ which will create the folder +opendolphin+ and expand the template into it.
+If you would like to develop a HTML5 frontend the project template comes with an example in form of a JSP: +webapp/src/main/webapp/hellodolphin.jsp+
+which you can use as a start. To try it out start jetty as described in the _remote mode_ :
+-----
+	./gradlew jettyRun
+-----
+
+And then point your browser to http://localhost:8080/appContext/hellodolphin.jsp which will show a page which looks very similar to the JavaFX GUI we
+already saw:
+
+image::doc/hello_dolphin_html5.png[]
+
+
+Now you have a running Open-Dolphin project setup which you can use to develop your application.
+For more information have a look at the http://open-dolphin.org/[Open-Dolphin webpage] and the Jumpstart tutorial at https://github.com/canoo/DolphinJumpStart[DolphinJumpStart]
+
+
+== Subtemplates
+Instead of using the convenience scripts +setup_for_java.sh+ and +setup_for_groovy.sh+ you can also apply the subtemplates individually. In fact
+the scripts do just that. To invoke the java/javafx template alone simply call:
+
+-----
+lazybones generate dolphin-server-java
+-----
+If you would like to pass the value for _moduleName_ on the commandline use the +-P+ parameter:
+-----
+lazybones generate -PmoduleName=server dolphin-server-java
+-----
+
+In case something went wrong during the application of the template setting the loglevel might help:
+-----
+lazybones --logLevel=FINE  generate -PmoduleName=server dolphin-server-java
+-----
+
+== Template Development Instructions
+
+* Make a change in a template, e.g. +templates/subtmpl-dolphin-client-javafx-java+
+* In the top folder execute +./gradlew installTemplateOpenDolphin+ which will install the +opendolphin+ template into +~/.lazybones/templates/opendolphin-0.0.5.zip+
+* In an arbitrary directory execute +lazybones create opendolphin 0.0.5 hello_dolphin+ which will create the folder +hello_dolphin+ and expand the template into it.
 * Repeat the previous steps until you are satisfied with the result
 
 == Publishing
