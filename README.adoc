@@ -142,11 +142,38 @@ already saw:
 image::doc/hello_dolphin_html5.png[]
 
 
+== IDEs
+
+=== IntelliJ IDEA
+
+IntelliJ IDEA users simply choose +File/Import Project+ from the menu bar and then select +hello_dolphin/build.gradle+. This will open the _Import Project from Gradle_ dialog. Having confirmed the dialog you are ready to go. To run the application open +ApplicationInMemoryStarter+ from +combined/src/main/java...+ and run it. This corresponds to
++./gradlew :combined:run+ which we performed earlier on the commandline.
+
+
+=== Netbeans 8
+I am an IntelliJ IDEA user and unfortunately could not quite figure out how to import the gradle based project into Netbeans. If anyone has some hints on how to
+do it properly please let me know. This is what I found so far:
+Netbeans 8 users need to install the _Gradle Support_ plugin via +Tools/Plugins+. After restarting the IDE simply choose +File/Open Project+ from the menu bar and then select the +hello_dolphin+ folder which already carries the _gradle_ icon. At this point unfortunately Netbeans complains that it cannot find the _:shared_ module although it
+works on the commandline and in IntelliJ IDEA.
+
+=== Eclipse
+In the +hello_dolphin+ folder invoke +./gradlew eclipse+. Start Eclipse and choose +File/Import+ from the menu bar and then +General/Existing Projects into Workspace+. Then select +hello_dolphin+ as the root directory and make sure to have selected the _Search for nested projects_ checkbox:
+
+image::doc/eclipse_import_project_1.png[]
+
+
+Press the _Finish_ button, open +ApplicationInMemoryStarter+ from the _combined_ project and run it. This should bring up the familiar Hello Dolphin GUI.
+
+Note that if you are not using JDK 8 but JDK 7 you might need to add the JavaFX jar +JAVA_HOME/jre/lib/jfxrt.jar+ to your classpath.
+
+=== Conclusion
+
 Now you have a running Open-Dolphin project setup which you can use to develop your application.
 For more information have a look at the http://open-dolphin.org/[Open-Dolphin webpage] and the Jumpstart tutorial at https://github.com/canoo/DolphinJumpStart[DolphinJumpStart]
 
+== Additional Information
 
-== Subtemplates
+=== Subtemplates
 Instead of using the convenience scripts +setup_for_java.sh+ and +setup_for_groovy.sh+ you can also apply the subtemplates individually. In fact
 the scripts do just that. To invoke the java/javafx template alone simply call:
 
@@ -163,11 +190,11 @@ In case something went wrong during the application of the template setting the 
 lazybones --logLevel=FINE  generate -PmoduleName=server dolphin-server-java
 -----
 
-== Template Development Instructions
+=== Template Development Instructions
 
 * Make a change in a template, e.g. +templates/subtmpl-dolphin-client-javafx-java+
-* In the top folder execute +./gradlew installTemplateOpenDolphin+ which will install the +opendolphin+ template into +~/.lazybones/templates/opendolphin-0.0.5.zip+
-* In an arbitrary directory execute +lazybones create opendolphin 0.0.5 hello_dolphin+ which will create the folder +hello_dolphin+ and expand the template into it.
+* In the top folder execute +./gradlew installTemplateOpenDolphin+ which will install the +opendolphin+ template into +~/.lazybones/templates/opendolphin-0.0.6.zip+
+* In an arbitrary directory execute +lazybones create opendolphin 0.0.6 hello_dolphin+ which will create the folder +hello_dolphin+ and expand the template into it.
 * Repeat the previous steps until you are satisfied with the result
 
 == Publishing
