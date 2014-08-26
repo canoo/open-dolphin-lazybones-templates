@@ -2,8 +2,8 @@
 New Open Dolphin Project got created.
 
 Next:
-
-- cd $project_dir_name
+<% if ('.' != ARG_PROJECT_DIR_NAME) { %>- cd ${ARG_PROJECT_DIR_NAME}<% } %>
+- generate the subprojects by either running 'setup_for_java.sh' or 'setup_for_groovy.sh'
 - ./gradlew :combined:run
 
   which should bring up a window with a button. When you click it you should see the OpenDolphin communication messages in the terminal.
