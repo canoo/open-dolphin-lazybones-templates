@@ -3,7 +3,7 @@ def includeFromSomewhere(String name, String path, String buildFilename = null) 
 	ProjectDescriptor projectDescriptor = project(":${name}")
 	projectDescriptor.projectDir = new File(path)
 	if (buildFilename) {
-		projectDescriptor.buildFileName = new File(buildFilename)
+		projectDescriptor.buildFileName = buildFilename
 	}
 	
 }
