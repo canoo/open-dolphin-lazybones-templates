@@ -1,0 +1,11 @@
+def includeFromSomewhere(String name, String path, String buildFilename = null) {
+	include ":${name}"
+	ProjectDescriptor projectDescriptor = project(":${name}")
+	projectDescriptor.projectDir = new File(path)
+	if (buildFilename) {
+		projectDescriptor.buildFileName = new File(buildFilename)
+	}
+	
+}
+
+includeFromSomewhere 'shared', '../shared'

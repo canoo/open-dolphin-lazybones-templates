@@ -11,7 +11,7 @@ repositories {
 }
 
 dependencies {
-	compile project(':shared') // TODO: dependency to module 'shared'
+	compile project(':shared')
     compile "org.open-dolphin:dolphin-server:\$dolphinVersion"
 }
 

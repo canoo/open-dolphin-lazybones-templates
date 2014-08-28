@@ -38,12 +38,6 @@ sourcesDir.eachFile { File file ->
    file.renameTo("${targetPath.absolutePath}/${file.name}")
 }
 
-// Copy files in root folder:
-//['build.gradle', 'gradle.properties'].each { fn ->
-//	FileUtils.copyFileToDirectory(new File(templateDir, 'content/' + fn), new File(projectDirName))
-//}
-
-
 def ask2(key, proposal) {
 	ask("Define value for '$key' [$proposal]: ", proposal, key)
 }

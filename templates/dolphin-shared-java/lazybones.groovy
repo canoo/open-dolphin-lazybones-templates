@@ -24,7 +24,7 @@ props.PROJECT_CAPITALIZED_NAME = props.PROJECT_NAME.capitalize()
 processTemplates '**/README.adoc', props
 processTemplates '**/build.gradle', props
 processTemplates '**/gradle.properties', props
-processTemplates("content/**/*", props)
+processTemplates("src/**/*", props)
 
 // Copy 'src' folder:
 File targetDir = new File(projectDirName, 'src/main/java')
@@ -32,17 +32,11 @@ String packagePath = props.PKG.replace('.' as char, '/' as char)
 File targetPath = new File(targetDir, packagePath)
 targetPath.mkdirs()
 
-File sourcesDir = new File(templateDir, 'content/src/main/java')
+File sourcesDir = new File(templateDir, 'src/main/java')
 sourcesDir.eachFile { File file ->
 	println file.name
    file.renameTo("${targetPath.absolutePath}/${file.name}")
 }
-
-// Copy files in root folder:
-['build.gradle', 'gradle.properties'].each { fn ->
-	FileUtils.copyFileToDirectory(new File(templateDir, 'content/' + fn), new File(projectDirName))
-}
-
 
 def ask2(key, proposal) {
 	ask("Define value for '$key' [$proposal]: ", proposal, key)
