@@ -1,0 +1,21 @@
+apply plugin : 'war'
+apply plugin : 'jetty'
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+}
+
+dependencies {
+    compile project(':server')
+    compile project(':shared')
+}
+
+war {
+    archiveName='application.war'
+}
+
+jettyRun {
+    contextPath = 'appContext'
+}
+

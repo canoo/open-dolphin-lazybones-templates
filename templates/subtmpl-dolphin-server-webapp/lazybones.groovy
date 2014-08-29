@@ -5,8 +5,6 @@ import static org.apache.commons.io.FilenameUtils.concat
 
 def params = [:]
 params.PKG = "${parentParams.packageName}"
-params._S_EV = "<%"
-params._E_EV = "%>"
 params.'_<%' = "%>"
 params.'_%>' = "%>"
 params.'_<%=' = "<%="
