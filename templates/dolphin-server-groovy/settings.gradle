@@ -1,0 +1,11 @@
+def includeFrom(String name, String path, String buildFilename = null) {
+	include ":${name}"
+	ProjectDescriptor projectDescriptor = project(":${name}")
+	projectDescriptor.projectDir = new File(path)
+	if (buildFilename) {
+		projectDescriptor.buildFileName = buildFilename
+	}
+	
+}
+
+includeFrom 'shared', '../shared'

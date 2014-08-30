@@ -1,4 +1,7 @@
 apply plugin: 'application'
+apply plugin: 'groovy'
+apply plugin: 'maven'
+apply plugin: 'eclipse'
 
 mainClassName = '${PKG}.ApplicationStarter'
 
@@ -6,6 +9,11 @@ logger.info "*** running on " + (runningOnJDK8() ? 'JDK 8' : 'JDK 7')
 
 ext {
 	jfxLibDir = locateJfxLibDir()
+}
+
+repositories {
+    mavenCentral()
+    mavenLocal()
 }
 
 dependencies {
