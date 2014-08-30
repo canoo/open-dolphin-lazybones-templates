@@ -1,0 +1,24 @@
+apply plugin: 'application'
+apply plugin: 'java'
+apply plugin: 'maven'
+apply plugin: 'eclipse'
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+}
+
+dependencies {
+    compile project(':client')
+    compile project(':server')
+    compile "org.open-dolphin:dolphin-combined:\$dolphinVersion"
+    testCompile "junit:junit:4.11"
+}
+
+mainClassName = '${PKG}.ApplicationInMemoryStarter'
+
+gradle.taskGraph.whenReady { tg ->
+	if (tg.hasTask(':runWithGroovy')) {
+		project.setProperty('mainClassName', '${PKG}.start')
+	}
+}
