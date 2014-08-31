@@ -190,6 +190,23 @@ In case something went wrong during the application of the template setting the 
 lazybones --logLevel=FINE  generate -PmoduleName=server dolphin-server-java
 -----
 
+=== Using top level templates
+Note that there is an alternative way to generate the Open Dolphin project structure which uses just top level templates for all the described technology / language combinations described. Currently it is still exeprimental but will most likely become the way to generate the project structure. Subtemplates will then be used to
+generate patterns like PMs for table handling etc. into the individual folders.
+
+To use the top-level templates we recommend to create a new empty directory and then inside it you use lazybones to create
+the individual projects (replace java with groovy for the groovy version):
+
+* lazybones create dolphin-shared-java shared
+* lazybones create dolphin-server-java server
+* lazybones create dolphin-client-javafx-java client
+* lazybones create dolphin-combined-java combined
+* lazybones create dolphin-server-webapp webapp
+
+For the first time we recommend to do it exactly like this, have a look at the +settings.gradle+ and +build.gradle+ files to see how they depend on each other. If necessery you can then adjust the dependencies according to your needs.
+
+Note that this way it is possible to have the individual project folders in any location you like. Technically each project is a multi module project and you can import each of them into your IDE where the dependent projects appear as well.
+
 === Template Development Instructions
 
 * Make a change in a template, e.g. +templates/subtmpl-dolphin-client-javafx-java+
