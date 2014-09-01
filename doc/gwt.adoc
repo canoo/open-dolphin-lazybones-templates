@@ -1,0 +1,23 @@
+= Open-Dolphin GWT Template
+
+Use this project template if you would like to combine Open-Dolphin with Google Web Toolkit.
+The template makes use of the https://github.com/canoo/open-dolphin-gwt[OpenDolphin-GWT Adapter] which is built upon opendolphin.js.
+
+== Usage Instructions
+
+* If not done already install +lazybones+ as described here in https://github.com/canoo/open-dolphin-lazybones-templates/blob/master/README.adoc
+* Create a new empty folder (say +hello_dolphin+) and cd into it
+* In +hello_dolphin+ first create the the shared and server projects by invoking (confirm all questions with enter):
+** +lazybones create dolphin-shared-java shared+
+** +lazybones create dolphin-server-java server+
+* And then also in +hello_dolphin+ create a new project folder for gwt by invoking +lazybones create dolphin-gwt gwt+
+* cd into the +gwt+ folder and execute +./gradlew --info :jettyDraftWar+. Wait until you see the message _Running at http://localhost:8080/gwt_
+* open a second terminal in the +gwt+ folder and execute +./gradlew :gwtSuperDev+. Wait until you see the message _http://localhost:9876/_
+* point your browser at +http://localhost:9876/+ and then drag and drop the button _Dev Mode On_ to your browser's toolbar
+* point your browser at +http://localhost:8080/gwt/MainApplication.html+ and the press the _Dev Mode On_ in the toolbar. After a short gwt compile time the
+  well known greet page should appear. Put a name in the text field and press the greet button.
+
+This should give you a start into using Open-Dolphin together with GWT.
+
+
+

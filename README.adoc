@@ -207,6 +207,11 @@ For the first time we recommend to do it exactly like this, have a look at the +
 
 Note that this way it is possible to have the individual project folders in any location you like. Technically each project is a multi module project and you can import each of them into your IDE where the dependent projects appear as well.
 
+=== Other Open-Dolphin Templates
+
+* doc/gwt.adoc[Open-Dolphin GWT Template]
+
+
 === Template Development Instructions
 
 * Make a change in a template, e.g. +templates/subtmpl-dolphin-client-javafx-java+
