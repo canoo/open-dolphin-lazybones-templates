@@ -209,7 +209,7 @@ Note that this way it is possible to have the individual project folders in any 
 
 === Other Open-Dolphin Templates
 
-* https://github.com/canoo/open-dolphin-lazybones-templates/doc/gwt.adoc[Open-Dolphin GWT Template]
+* link:doc/gwt.adoc[Open-Dolphin GWT Template]
 
 
 === Template Development Instructions
