@@ -26,6 +26,12 @@ public class Binder {
 				clientDolphin.getAt(PM_APP).getAt(ATT_NAME).setValue(view.getNameTextBox().getText());
 			}
 		});
+		clientDolphin.getAt(PM_APP).getAt(ATT_NAME).addValueChangeHandler(new AttributeChangeHandler() {
+			@Override
+			public void handleChange(final String oldValue, final String newValue) {
+				view.getNameTextBox().setText(newValue);
+			}
+		});
 		clientDolphin.getAt(PM_APP).getAt(ATT_GREETING).addValueChangeHandler(new AttributeChangeHandler() {
 			@Override
 			public void handleChange(final String oldValue, final String newValue) {

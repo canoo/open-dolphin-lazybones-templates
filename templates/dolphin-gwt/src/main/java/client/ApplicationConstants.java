@@ -5,18 +5,10 @@ package ${PKG}.client;
  */
 public class ApplicationConstants {
 
-    public static final String PM_APP = unique("APP");
+    public static final String PM_APP = "org.group.ApplicationConstants.APP";
     public static final String ATT_NAME = "ATT_NAME";
     public static final String ATT_GREETING = "ATT_GREETING";
 
-	public static final String COMMAND_GREET = "${PKG}.ApplicationConstants.CMD_GREET";
-
-
-    /**
-     * Unify the identifier with the class name prefix.
-     */
-    private static String unique(String key) {
-        return ApplicationConstants.class.getName() + "." + key;
-    }
+    public static final String COMMAND_GREET = "org.group.ApplicationConstants.CMD_GREET";
 
 }
