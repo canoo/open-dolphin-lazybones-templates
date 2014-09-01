@@ -1,0 +1,8 @@
+Instructions:
+
+* open two terminals
+*in first one invoke: ./gradlew :jettyDraftWar
+* in second one invoke: ./gradlew :gwtSuperDev
+* point browser to ...
+* point browser to http://localhost:8080/gwt/MainApplication.html
+
