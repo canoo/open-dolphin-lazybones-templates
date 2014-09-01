@@ -1,7 +1,6 @@
 package ${PKG}.client;
 
 import com.canoo.opendolphin.client.gwt.*;
-import com.canoo.opendolphin.client.js.JSLogger;
 import com.canoo.opendolphin.client.js.DolphinLoaderJS;
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.GWT;
@@ -33,7 +32,7 @@ public class MainApplication implements EntryPoint {
 				// 2: Initialize PMs:
 				//PMContext pmContext = new PMContext().initialize(clientDolphin);
 				ClientPresentationModel pm = clientDolphin.presentationModel(PM_APP,  ATT_NAME, ATT_GREETING);
-JSLogger.log("pm: " + pm.getId());
+
 				MainView view = new MainView().initialize();
 
 				new Binder().bind(view, clientDolphin);
