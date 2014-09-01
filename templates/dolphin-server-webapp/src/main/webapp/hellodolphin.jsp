@@ -29,8 +29,6 @@ ${'<%'}@ page import="${PKG}.ApplicationConstants" ${'%>'}
             var nameTextField = document.getElementById("nameTextField");
             var greetingLabel = document.getElementById("greetingLabel");
             var greetButton = document.getElementById("greetButton");
-			console.log("3");
-
 
             // Bindings:
             // nameTextField -> att_name
