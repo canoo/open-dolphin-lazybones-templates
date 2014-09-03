@@ -7,12 +7,13 @@ app.controller('DemoCtrl', function($scope, $timeout) {
 		console.log("controller.init");
 	};
 
-	$scope.firstName = "Sven";
+	$scope.name = "Duke";
+	$scope.greeting = "unchanged";
 
-    $scope.appendLonger = function (data) {
-        console.log("hallo " + $scope.firstName);
-		var attr = globalDolphin.getAt('myPM').getAt('myAttribute');
-		attr.setValue(attr.getValue() + ' longer');
+	$scope.handleGreetClick = function (data) {
+        console.log("greet clicked ");
+        console.log(data);
+        globalDolphin.send(constants.COMMAND_GREET);
     };
 
 	$scope.bindPM = function(ngModelName, pmId, attrName) {
@@ -59,7 +60,8 @@ app.controller('DemoCtrl', function($scope, $timeout) {
 
 	};
 
-	$scope.bindPM('firstName', 'myPM', 'myAttribute');
+	$scope.bindPM('name', 'org.group.ApplicationConstants.APP', 'ATT_NAME');
+	$scope.bindPM('greeting', 'org.group.ApplicationConstants.APP', 'ATT_GREETING');
 
 });
 

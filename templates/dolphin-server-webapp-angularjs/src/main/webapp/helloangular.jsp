@@ -1,32 +1,34 @@
+${'<%'}@ page import="${PKG}.ApplicationConstants" ${'%>'}
+
 <!DOCTYPE html>
 <html>
 <head>
     <title></title>
 
-	<link rel="stylesheet" href="bootstrap/bootstrap-3.1.1-dist/css/bootstrap.min.css">
-	<link rel="stylesheet" href="bootstrap/bootstrap-3.1.1-dist/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" href="libs/bootstrap/bootstrap-3.1.1-dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="libs/bootstrap/bootstrap-3.1.1-dist/css/bootstrap-theme.min.css">
 
 	<script type="text/javascript" src="libs/angularjs/1.2.21/angular.min.js"></script>
 	<script type="text/javascript" src="js/app/main.js"></script>
+	<script type="text/javascript" src="js/app/api.js.jsp"></script>
 
     <!-- refer to OpenDolphin, see also http://open-dolphin.org/dolphin_website/Download.html -->
     <script data-main="js/dolphin/" src="libs/require.js"></script>
 
 	<script>
 		var globalDolphin;
+		var constants = readConstants();
 
 		angular.element(document).ready(function() {
 
 			require([ 'opendolphin' ], function (dol) {
-				// Set up the dolphin for client-side only mode (first parameter url is null)
-				// and not forcing a new session on page reload (irrelevant for client side only mode):
-				globalDolphin = dol.dolphin(null, false);
+				globalDolphin = dol.dolphin("${'<%='}application.getContextPath()${'%>'}/dolphin/", true);
+				console.log("pmId: ", constants.pmId);
 
-				// Make an attribute with name, no qualifier, and an empty String as initial value:
-				const attribute = globalDolphin.attribute("myAttribute", undefined, "");
+	            var att_name = globalDolphin.attribute("${'<%='}ApplicationConstants.ATT_NAME${'%>'}", undefined, "");
+	            var att_greeting = globalDolphin.attribute("${'<%='}ApplicationConstants.ATT_GREETING${'%>'}", undefined, "");
 
-				// ... and put it into a presentation model with id 'myPM' and no type
-				var pm = globalDolphin.presentationModel("myPM", undefined, attribute);
+	            var pm = globalDolphin.presentationModel("${'<%='}ApplicationConstants.PM_APP${'%>'}", undefined, att_name, att_greeting);
 
 				angular.bootstrap(document, ['app']);
 
@@ -40,10 +42,11 @@
 
 <body ng-controller="DemoCtrl">
 
-<input type="text" ng-model="firstName">
-<h1>AngularJS Model: {{firstName}}</h1>
-
-<button ng-click="appendLonger()">add 'longer' to PM</button>
+<div class="container" role="main" ng-controller="DemoCtrl">
+	<input type="text" ng-model="name">
+	<button id="greetButton" class="btn btn-primary" ng-click="handleGreetClick()">Greet</button>
+	<h1><span id="greetingLabel" class="label label-primary label-success">{{greeting}}</span></h1>
+</div>
 
 </body>
 </html>
