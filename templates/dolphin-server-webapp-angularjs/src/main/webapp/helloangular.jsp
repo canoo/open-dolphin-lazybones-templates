@@ -2,6 +2,10 @@
 <html>
 <head>
     <title></title>
+
+	<link rel="stylesheet" href="bootstrap/bootstrap-3.1.1-dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="bootstrap/bootstrap-3.1.1-dist/css/bootstrap-theme.min.css">
+
 	<script type="text/javascript" src="libs/angularjs/1.2.21/angular.min.js"></script>
 	<script type="text/javascript" src="js/app/main.js"></script>
 

@@ -36,18 +36,6 @@ def processRootTemplate(def props, String projectDirName, List<String> filenameP
 
 	filenamePatterns.each { processTemplates it, props }
 
-	// Copy 'src' folder:
-/*
-	File targetDir = new File(projectDirName, 'src/main/java')
-	String packagePath = props.PKG.replace('.' as char, '/' as char)
-	File targetPath = new File(targetDir, packagePath)
-	targetPath.mkdirs()
-
-	File sourcesDir = new File(templateDir, 'src/main/java')
-	sourcesDir.eachFile { File file ->
-	   file.renameTo("${targetPath.absolutePath}/${file.name}")
-	}
-*/
 }
 
 def ask2(key, proposal) {
