@@ -13,7 +13,7 @@ app.controller('DemoCtrl', function($scope, $timeout) {
 	$scope.handleGreetClick = function (data) {
         console.log("greet clicked ");
         console.log(data);
-        globalDolphin.send(constants.COMMAND_GREET);
+        globalDolphin.send(apiConstants.COMMAND_GREET);
     };
 
 	$scope.bindPM = function(ngModelName, pmId, attrName) {

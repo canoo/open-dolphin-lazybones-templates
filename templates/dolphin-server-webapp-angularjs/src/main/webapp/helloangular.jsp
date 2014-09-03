@@ -1,5 +1,3 @@
-${'<%'}@ page import="${PKG}.ApplicationConstants" ${'%>'}
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,18 +15,17 @@ ${'<%'}@ page import="${PKG}.ApplicationConstants" ${'%>'}
 
 	<script>
 		var globalDolphin;
-		var constants = readConstants();
+		var apiConstants = readApiConstants();
 
 		angular.element(document).ready(function() {
 
 			require([ 'opendolphin' ], function (dol) {
-				globalDolphin = dol.dolphin("${'<%='}application.getContextPath()${'%>'}/dolphin/", true);
-				console.log("pmId: ", constants.pmId);
+				globalDolphin = dol.dolphin(apiConstants.DOLPHIN_URL, true);
 
-	            var att_name = globalDolphin.attribute("${'<%='}ApplicationConstants.ATT_NAME${'%>'}", undefined, "");
-	            var att_greeting = globalDolphin.attribute("${'<%='}ApplicationConstants.ATT_GREETING${'%>'}", undefined, "");
+	            var att_name = globalDolphin.attribute(apiConstants.ATT_NAME, undefined, "");
+	            var att_greeting = globalDolphin.attribute(apiConstants.ATT_GREETING, undefined, "");
 
-	            var pm = globalDolphin.presentationModel("${'<%='}ApplicationConstants.PM_APP${'%>'}", undefined, att_name, att_greeting);
+	            var pm = globalDolphin.presentationModel(apiConstants.PM_ID, undefined, att_name, att_greeting);
 
 				angular.bootstrap(document, ['app']);
 

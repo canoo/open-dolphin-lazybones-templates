@@ -3,10 +3,13 @@ ${'<%'}@page language="java" contentType="text/javascript; charset=UTF-8"
 
 ${'<%'}@ page import="${PKG}.ApplicationConstants" ${'%>'}
 
-readConstants = function() {
+readApiConstants = function() {
 	return {
-		pmId: "${'<%='}ApplicationConstants.PM_APP${'%>'}",
-		COMMAND_GREET: "${'<%='}ApplicationConstants.COMMAND_GREET${'%>'}"
+		DOLPHIN_URL: "${'<%='}application.getContextPath()${'%>'}/dolphin/",
+		PM_ID: "${'<%='}ApplicationConstants.PM_APP${'%>'}",
+		ATT_NAME: "${'<%='}ApplicationConstants.ATT_NAME${'%>'}",
+		ATT_GREETING: "${'<%='}ApplicationConstants.ATT_GREETING${'%>'}",
+		COMMAND_GREET: "${'<%='}ApplicationConstants.COMMAND_GREET${'%>'}",
 	}
 };
 
