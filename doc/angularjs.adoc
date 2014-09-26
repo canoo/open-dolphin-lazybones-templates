@@ -1,4 +1,4 @@
-= Open-Dolphin GWT Template
+= Open-Dolphin AngularJS Template
 
 Use this project template if you would like to combine Open-Dolphin with AngularJS.
 
