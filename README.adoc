@@ -210,7 +210,7 @@ Note that this way it is possible to have the individual project folders in any 
 === Other Open-Dolphin Templates
 
 * link:doc/gwt.adoc[Open-Dolphin GWT Template]
-
+* link:doc/angularjs.adoc[Open-Dolphin AngularJS Template]
 
 === Template Development Instructions
 
