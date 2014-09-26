@@ -1364,7 +1364,6 @@ define('Codec',["require", "exports"], function(require, exports) {
 
             Codec.prototype.decode = function (transmitted) {
                 if (typeof transmitted == 'string') {
-					console.log(transmitted);
                     return JSON.parse(transmitted);
                 } else {
                     return transmitted;
