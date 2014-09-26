@@ -1,0 +1,24 @@
+= Open-Dolphin GWT Template
+
+Use this project template if you would like to combine Open-Dolphin with AngularJS.
+
+== Usage Instructions
+
+* If not done already install +lazybones+ as described here in https://github.com/canoo/open-dolphin-lazybones-templates/blob/master/README.adoc
+* Create a new empty folder (say +hello_dolphin+) and cd into it
+* In +hello_dolphin+ first create the the shared and server projects by invoking (confirm all questions with enter):
+** +lazybones create dolphin-shared-java shared+
+** +lazybones create dolphin-server-java server+
+* And then also in +hello_dolphin+ create a new project folder for gwt by invoking +lazybones create dolphin-server-webapp-angularjs webapp+
+* cd into the +webapp+ folder and execute +./gradlew --info :jettyDraftWar+. Wait until you see the message _Running at http://localhost:8080/appContext_
+* point your browser at +http://localhost:8080/appContext/helloangular.jsp+. The well known greet page should appear. Put a name in the text field and press the greet button.
+
+This should give you a start into using Open-Dolphin together with AngularJS.
+
+== Under the hood
+
+TBD
+
+
+
+
