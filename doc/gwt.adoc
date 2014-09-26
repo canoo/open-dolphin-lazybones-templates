@@ -10,7 +10,8 @@ The template makes use of the https://github.com/canoo/open-dolphin-gwt[OpenDolp
 * In +hello_dolphin+ first create the the shared and server projects by invoking (confirm all questions with enter):
 ** +lazybones create dolphin-shared-java shared+
 ** +lazybones create dolphin-server-java server+
-* And then also in +hello_dolphin+ create a new project folder for gwt by invoking +lazybones create dolphin-gwt gwt+
+* And then also in +hello_dolphin+ create a new project folder for gwt by invoking
+** +lazybones create dolphin-gwt gwt+
 * cd into the +gwt+ folder and execute +./gradlew --info :jettyDraftWar+. Wait until you see the message _Running at http://localhost:8080/gwt_
 * open a second terminal in the +gwt+ folder and execute +./gradlew :gwtSuperDev+. Wait until you see the message _http://localhost:9876/_
 * point your browser at +http://localhost:9876/+ and then drag and drop the button _Dev Mode On_ to your browser's toolbar
