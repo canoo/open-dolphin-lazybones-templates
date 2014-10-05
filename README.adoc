@@ -98,7 +98,7 @@ You can run the application in two modes: the _development_ mode and the _remote
 
 === Development mode
 
-To run it in _development_ mode invoke make sure you are in the +combined+ folder. Then invoke:
+To run it in _development_ mode make sure you are in the +combined+ folder. Then invoke:
 
 -----
 ./gradlew :run
@@ -110,7 +110,7 @@ image::doc/hello_dolphin_javafx.png[]
 
 On the terminal you can watch the commands which are sent forth and back between client and server.
 
-Running this application is most convenient for development since it requires only one process to be started.
+Running the application this way (especially with an IDE) is most convenient for development since it requires only one process to be started.
 
 === Remote mode
 
