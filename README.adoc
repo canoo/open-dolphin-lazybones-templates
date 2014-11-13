@@ -72,8 +72,6 @@ lazybones create dolphin-combined-java combined
 lazybones create dolphin-server-java server
 ...
 lazybones create dolphin-shared-java shared
-...
-lazybones create dolphin-server-java server
 
 ----
 
