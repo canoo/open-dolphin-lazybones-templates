@@ -16,9 +16,12 @@ import org.opendolphin.binding.JFXBinder;
 import org.opendolphin.core.PresentationModel;
 import org.opendolphin.core.client.ClientAttribute;
 import org.opendolphin.core.client.ClientDolphin;
+import org.opendolphin.core.client.ClientPresentationModel;
+import org.opendolphin.core.client.comm.OnFinishedHandlerAdapter;
 
 import static ${PKG}.ApplicationConstants.*;
 
+import java.util.List;
 
 public class Application extends javafx.application.Application {
     static ClientDolphin clientDolphin;
@@ -27,19 +30,15 @@ public class Application extends javafx.application.Application {
     private TextField nameTextField;
     private Label greetingLabel;
 
-    public Application() {
-        clientDolphin.presentationModel(PM_APP, new ClientAttribute(ATT_NAME, null), new ClientAttribute(ATT_GREETING, null));
-    }
-
     @Override
     public void start(Stage stage) throws Exception {
 
         stage.setTitle("Application Title");
 
         Pane root = setupStage();
-        addClientSideAction();
-        setupBinding();
 
+        addClientSideAction();
+        initializePMs();
 
         Scene scene = new Scene(root, 300, 300);
         scene.setFill(Color.GREEN);
@@ -65,6 +64,15 @@ public class Application extends javafx.application.Application {
         vBox.getChildren().addAll(greetingLabel);
         button.setText("Greet");
         return pane;
+    }
+
+    private void initializePMs() {
+		clientDolphin.send(COMMAND_INIT, new OnFinishedHandlerAdapter() {
+    		@Override
+    		public void onFinished(List<ClientPresentationModel> presentationModels) {
+    			setupBinding();
+    		}
+    	});
     }
 
     private void setupBinding() {
