@@ -11,4 +11,4 @@ config.serverDolphin.registerDefaultActions()
 
 config.serverDolphin.register(new ApplicationDirector())
 
-MainView.show(config.clientDolphin)
+new MainView(clientDolphin: config.clientDolphin).show()

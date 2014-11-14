@@ -1,6 +1,5 @@
 package ${PKG};
 
-import javafx.application.Application;
 import org.opendolphin.core.client.ClientDolphin;
 import org.opendolphin.core.client.ClientModelStore;
 import org.opendolphin.core.client.comm.ClientConnector;
@@ -17,7 +16,9 @@ public class ApplicationStarter {
         connector.setUiThreadHandler(new JavaFXUiThreadHandler());
         clientDolphin.setClientConnector(connector);
 
-        MainView.show(clientDolphin);
+        MainView mainView = new MainView();
+        mainView.setClientDolphin(clientDolphin);
+        mainView.show();
     }
 
     private static ClientConnector createConnector(ClientDolphin clientDolphin) {

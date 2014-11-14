@@ -13,13 +13,16 @@ import static ${PKG}.ApplicationConstants.*
 import static groovyx.javafx.GroovyFX.start
 
 class MainView {
-	static show(ClientDolphin clientDolphin) {
+
+	ClientDolphin clientDolphin
+	def nameTextField
+	def btn
+	def greetingLabel
+
+	def show() {
 
 		start { app ->
 
-			def nameTextField
-			def btn
-			def greetingLabel
 
 			def sgb = delegate
 
@@ -33,23 +36,37 @@ class MainView {
 				}
 			}
 
-			def pm = clientDolphin.presentationModel(PM_APP, new ClientAttribute(ATT_NAME, null), new ClientAttribute(ATT_GREETING, null));
+			addClientSideAction()
 
-			bind ATT_NAME of pm to 'text' of nameTextField
-			bind 'text' of nameTextField to ATT_NAME of pm
-			bind ATT_GREETING of pm to 'text' of greetingLabel
-
-			pm.getAt(ATT_NAME).value = "Duke";
-
-
-			btn.setOnAction(new EventHandler<ActionEvent>() {
-	            @Override
-	            public void handle(ActionEvent actionEvent) {
-	                clientDolphin.send(COMMAND_GREET);
-	            }
-	        });
+			initializePMs()
 
 			primaryStage.show()
 		}
 	}
+
+    private void initializePMs() {
+		clientDolphin.send(COMMAND_INIT) { pms ->
+			setupBinding()
+
+		}
+    }
+
+	private void setupBinding() {
+
+		def pm = clientDolphin[PM_APP]
+
+		bind ATT_NAME of pm to 'text' of nameTextField
+		bind 'text' of nameTextField to ATT_NAME of pm
+		bind ATT_GREETING of pm to 'text' of greetingLabel
+	}
+
+	 private void addClientSideAction() {
+	 	btn.setOnAction(new EventHandler<ActionEvent>() {
+        	@Override
+        	public void handle(ActionEvent actionEvent) {
+        		clientDolphin.send(COMMAND_GREET);
+        	}
+        });
+	 }
+
 }
