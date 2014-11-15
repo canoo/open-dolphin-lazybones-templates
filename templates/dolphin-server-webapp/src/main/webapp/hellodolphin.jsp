@@ -16,49 +16,58 @@ ${'<%'}@ page import="${PKG}.ApplicationConstants" ${'%>'}
 
     
     <script>
-        require([ 'opendolphin' ], function (dol) {
-            var dolphin = dol.dolphin("${'<%='}application.getContextPath()${'%>'}/dolphin/", true);
+        var nameTextField;
+        var greetingLabel;
+        var greetButton;
 
-            var att_name = dolphin.attribute("${'<%='}ApplicationConstants.ATT_NAME${'%>'}", undefined, "");
-            var att_greeting = dolphin.attribute("${'<%='}ApplicationConstants.ATT_GREETING${'%>'}", undefined, "");
-
-            var pm = dolphin.presentationModel("${'<%='}ApplicationConstants.PM_APP${'%>'}", undefined, att_name, att_greeting);
-
+        function setupBinding(dolphin) {
+            // Get PMs and attributes:
+            var pm = dolphin.getAt("${'<%='}ApplicationConstants.PM_APP${'%>'}");
+            var att_name = pm.getAt("${'<%='}ApplicationConstants.ATT_NAME${'%>'}");
+            var att_greeting = pm.getAt("${'<%='}ApplicationConstants.ATT_GREETING${'%>'}");
 
             // Get hold to widgets:
-            var nameTextField = document.getElementById("nameTextField");
-            var greetingLabel = document.getElementById("greetingLabel");
-            var greetButton = document.getElementById("greetButton");
-
-            // Bindings:
-            // nameTextField -> att_name
-            nameTextField.addEventListener("input", function () {
-				console.log("name: ", nameTextField.value);
-                att_name.setValue(nameTextField.value);
-            });
-
-            // att_greeting -> greetingLabel
-            att_greeting.onValueChange(function (event) {
-				console.log("greeting changed");
-                greetingLabel.innerHTML = event.newValue;
-            });
-
-			att_name.onValueChange(function (event) {
-				if (event.newValue !== undefined) {
-					console.log("name changed to: ", event.newValue);
-					nameTextField.value = event.newValue;
-				}
-			});
-
+            nameTextField = document.getElementById("nameTextField");
+            greetingLabel = document.getElementById("greetingLabel");
+            greetButton = document.getElementById("greetButton");
 
             greetButton.onclick = function () {
                 dolphin.send("${'<%='}ApplicationConstants.COMMAND_GREET${'%>'}");
             };
 
-			// Initial Data:
-			att_name.setValue('Duke')
+            // Bindings:
+            // nameTextField -> att_name
+            nameTextField.addEventListener("input", function () {
+                console.log("name: ", nameTextField.value);
+                att_name.setValue(nameTextField.value);
+            });
 
-        });
+            // att_greeting -> greetingLabel
+            att_greeting.onValueChange(function (event) {
+                console.log("greeting changed");
+                greetingLabel.innerHTML = event.newValue;
+            });
+
+            att_name.onValueChange(function (event) {
+                if (event.newValue !== undefined) {
+                    console.log("name changed to: ", event.newValue);
+                    nameTextField.value = event.newValue;
+                }
+            });
+        }
+
+
+        require([ 'opendolphin' ], function (dol) {
+            // Get PMs and attributes:
+            var dolphin = dol.dolphin("${'<%='}application.getContextPath()${'%>'}/dolphin/", true);
+
+            dolphin.send("${'<%='}ApplicationConstants.COMMAND_INIT${'%>'}", {
+                onFinished: function(pms) {
+                    setupBinding(dolphin);
+                }
+            });
+
+    });
     </script>
 
 
