@@ -45,9 +45,9 @@ class MainView {
 	}
 
     private void initializePMs() {
+
 		clientDolphin.send(COMMAND_INIT) { pms ->
 			setupBinding()
-
 		}
     }
 
@@ -61,12 +61,10 @@ class MainView {
 	}
 
 	 private void addClientSideAction() {
-	 	btn.setOnAction(new EventHandler<ActionEvent>() {
-        	@Override
-        	public void handle(ActionEvent actionEvent) {
-        		clientDolphin.send(COMMAND_GREET);
-        	}
-        });
+
+	 	btn.setOnAction {
+			clientDolphin.send(COMMAND_GREET)
+		}
 	 }
 
 }
