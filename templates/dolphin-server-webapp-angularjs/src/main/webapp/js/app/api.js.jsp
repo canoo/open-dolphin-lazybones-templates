@@ -10,6 +10,7 @@ readDolphinConfig = function() {
 			PM_ID: "${'<%='}ApplicationConstants.PM_APP${'%>'}",
 			ATT_NAME: "${'<%='}ApplicationConstants.ATT_NAME${'%>'}",
 			ATT_GREETING: "${'<%='}ApplicationConstants.ATT_GREETING${'%>'}",
+            COMMAND_INIT: "${'<%='}ApplicationConstants.COMMAND_INIT${'%>'}",
 			COMMAND_GREET: "${'<%='}ApplicationConstants.COMMAND_GREET${'%>'}",
 		}
 	}
