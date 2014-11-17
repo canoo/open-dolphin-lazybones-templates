@@ -9,6 +9,7 @@ public class ApplicationConstants {
     public static final String ATT_NAME = "ATT_NAME";
     public static final String ATT_GREETING = "ATT_GREETING";
 
+	public static final String COMMAND_INIT = unique("CMD_INIT");
 	public static final String COMMAND_GREET = unique("CMD_GREET");
 
 
