@@ -4,8 +4,9 @@ import com.canoo.opendolphin.client.gwt.*;
 import com.canoo.opendolphin.client.js.DolphinLoaderJS;
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.GWT;
+import java.util.List;
 
-import static org.group.client.ApplicationConstants.*;
+import static ${PKG}.client.ApplicationConstants.*;
 
 /**
  * Entry point classes define <code>onModuleLoad()</code>
@@ -28,16 +29,14 @@ public class MainApplication implements EntryPoint {
 
 			@Override
 			public void start(final ClientDolphin clientDolphin) {
+				final MainView view = new MainView().initialize();
 
 				// 2: Initialize PMs:
-				//PMContext pmContext = new PMContext().initialize(clientDolphin);
-				ClientPresentationModel pm = clientDolphin.presentationModel(PM_APP,  ATT_NAME, ATT_GREETING);
-
-				MainView view = new MainView().initialize();
-
-				new Binder().bind(view, clientDolphin);
-
-				clientDolphin.getAt(PM_APP).getAt(ATT_NAME).setValue("Duke");
+				clientDolphin.send(COMMAND_INIT, new OnFinishedHandler() {
+					public void handlePresentationModels(List<ClientPresentationModel> list) {
+						new Binder().bind(view, clientDolphin);
+					}
+				});
 			}
 		});
 
