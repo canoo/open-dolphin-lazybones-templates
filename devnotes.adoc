@@ -1,5 +1,15 @@
 = Development
 
+== Template Development Instructions
+
+* Make a change in a template, e.g. +templates/dolphin-client-javafx-java+
+* In the top folder execute +./gradlew installTemplateXYZ+ which will install the template into +~/.lazybones/templates/XYZ....zip+
+* In an arbitrary directory execute +lazybones createXYZ 0.0.6 <modulename>+ which will create the folder +<modulename>+ and expand the template into it.
+* Test the generated module and repeat the previous steps until you are satisfied with the result
+
+== Publishing
+* In the top level folder invoke +./gradlew publishTemplateXYZ+ . Note: the first time a package needs to be created with the bintray Web-GUI in the 'lazybones-templates' repository with a name ending in '-template' (e.g. 'open-dolphin-javafx-java-template').
+
 == Template installation
 in root folder:
 

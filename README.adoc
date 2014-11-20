@@ -196,7 +196,7 @@ lazybones --logLevel=FINE ...
 -----
 
 === Gradle Project Structure
-To tie the individual modules togher to form an application we use http://www.gradle.org/docs/current/userguide/multi_project_builds.html[gradle's multi project build facility] but adapted it a bit so
+To tie the individual modules together to form an application we use http://www.gradle.org/docs/current/userguide/multi_project_builds.html[gradle's multi project build facility] but adapted it a bit so
 that the root project does not have to be located in the top level folder but can be inside one of the modules like +combined+ or +client+.
 Have a look at the +combined/settings.gradle+ and +combined/build.gradle+ for example to see how they depend on each other.
 If necessery you can then adjust the dependencies according to your needs.
@@ -208,14 +208,5 @@ Note that this way it is possible to have the individual project folders in any 
 * link:doc/gwt.adoc[Open-Dolphin GWT Template]
 * link:doc/angularjs.adoc[Open-Dolphin AngularJS Template]
 
-=== Template Development Instructions
-
-* Make a change in a template, e.g. +templates/dolphin-client-javafx-java+
-* In the top folder execute +./gradlew installTemplateXYZ+ which will install the template into +~/.lazybones/templates/XYZ....zip+
-* In an arbitrary directory execute +lazybones createXYZ 0.0.6 <modulename>+ which will create the folder +<modulename>+ and expand the template into it.
-* Test the generated module and repeat the previous steps until you are satisfied with the result
-
-== Publishing
-* In the top level folder invoke +./gradlew publishTemplateXYZ+ . Note: the first time a package needs to be created with the bintray Web-GUI in the 'lazybones-templates' repository with a name ending in '-template' (e.g. 'open-dolphin-javafx-java-template').
 
 
