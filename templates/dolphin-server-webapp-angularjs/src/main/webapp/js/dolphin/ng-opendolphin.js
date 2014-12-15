@@ -13,6 +13,10 @@ angular.module('OpenDolphin').provider('$dolphinConfig', function() {
 
 });
 
+angular.module('OpenDolphin').service('dol', function() {
+	return opendolphin;
+});
+
 angular.module('OpenDolphin').factory('dolphin', function(dol, $dolphinConfig) {
 	return dol.dolphin($dolphinConfig.DOLPHIN_URL, true);
 });

@@ -20,7 +20,6 @@
 
 		angular.element(document).ready(function() {
 
-            angular.module('OpenDolphin').constant('dol', opendolphin);
             angular.bootstrap(document, ['app']);
 
 		});
