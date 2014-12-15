@@ -7,7 +7,7 @@
 	<link rel="stylesheet" href="libs/bootstrap/bootstrap-3.1.1-dist/css/bootstrap-theme.min.css">
 
 	<script type="text/javascript" src="libs/angularjs/1.2.21/angular.min.js"></script>
-    <script data-main="js/dolphin/opendolphin.js" src="libs/require.js"></script>
+    <script src="js/dolphin/opendolphin.js"></script>
 
 	<script type="text/javascript" src="js/dolphin/ng-opendolphin.js"></script>
 
@@ -20,10 +20,8 @@
 
 		angular.element(document).ready(function() {
 
-			require([ 'opendolphin' ], function (dol) {
-				angular.module('OpenDolphin').constant('dol', dol);
-				angular.bootstrap(document, ['app']);
-			});
+            angular.module('OpenDolphin').constant('dol', opendolphin);
+            angular.bootstrap(document, ['app']);
 
 		});
 	</script>
