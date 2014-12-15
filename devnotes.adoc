@@ -41,3 +41,17 @@ lb --logLevel=FINE generate -PmoduleName=server dolphin-server-java
 
 == Run the application:
 ./gradlew :combined:run
+
+== Appendix
+
+=== Popular module combinations
+
+[source]
+.Complete Java setup
+----
+lazybones create dolphin-client-javafx-java 0.0.2 client
+lazybones create dolphin-combined-java 0.0.1 combined
+lazybones create dolphin-server-java 0.0.2 server
+lazybones create dolphin-shared-java 0.0.2 shared
+lazybones create dolphin-server-webapp 0.0.2 webapp
+----
