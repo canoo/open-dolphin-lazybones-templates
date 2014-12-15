@@ -12,7 +12,7 @@ ${'<%'}@ page import="${PKG}.ApplicationConstants" ${'%>'}
 
     <title>Hello Dolphin</title>
     <!-- refer to OpenDolphin, see also http://open-dolphin.org/dolphin_website/Download.html -->
-    <script data-main="js/dolphin/" src="libs/require.js"></script>
+    <script src="js/dolphin/opendolphin.js"></script>
 
     
     <script>
@@ -57,17 +57,15 @@ ${'<%'}@ page import="${PKG}.ApplicationConstants" ${'%>'}
         }
 
 
-        require([ 'opendolphin' ], function (dol) {
-            // Get PMs and attributes:
-            var dolphin = dol.dolphin("${'<%='}application.getContextPath()${'%>'}/dolphin/", true);
+        // Get PMs and attributes:
+        var dolphin = opendolphin.dolphin("${'<%='}application.getContextPath()${'%>'}/dolphin/", true);
 
-            dolphin.send("${'<%='}ApplicationConstants.COMMAND_INIT${'%>'}", {
-                onFinished: function(pms) {
-                    setupBinding(dolphin);
-                }
-            });
+        dolphin.send("${'<%='}ApplicationConstants.COMMAND_INIT${'%>'}", {
+            onFinished: function(pms) {
+                setupBinding(dolphin);
+            }
+        });
 
-    });
     </script>
 
 
