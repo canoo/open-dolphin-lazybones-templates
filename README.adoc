@@ -209,4 +209,17 @@ Note that this way it is possible to have the individual project folders in any 
 * link:doc/angularjs.adoc[Open-Dolphin AngularJS Template]
 
 
+== Appendix
+
+=== Popular module combinations
+
+[source]
+.Complete Java setup
+----
+lazybones create dolphin-client-javafx-java client
+lazybones create dolphin-combined-java combined
+lazybones create dolphin-server-java server
+lazybones create dolphin-shared-java shared
+lazybones create dolphin-server-webapp webapp
+----
 
