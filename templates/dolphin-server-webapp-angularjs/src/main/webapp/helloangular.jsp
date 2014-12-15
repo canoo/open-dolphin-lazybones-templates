@@ -16,19 +16,9 @@
 
 	<script type="text/javascript" src="js/app/DemoCtrl.js"></script>
 
-	<script>
-
-		angular.element(document).ready(function() {
-
-            angular.bootstrap(document, ['app']);
-
-		});
-	</script>
-
-
 </head>
 
-<body>
+<body ng-app="app">
 
 <div style="margin-top: 2em" class="container" role="main" ng-controller="DemoCtrl">
 	<input type="text" ng-model="appGlobals.name">
