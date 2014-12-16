@@ -1,5 +1,3 @@
-${'<%'}@ page import="${PKG}.ApplicationConstants" ${'%>'}
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,19 +10,23 @@ ${'<%'}@ page import="${PKG}.ApplicationConstants" ${'%>'}
 
     <title>Hello Dolphin</title>
     <!-- refer to OpenDolphin, see also http://open-dolphin.org/dolphin_website/Download.html -->
-    <script src="js/dolphin/opendolphin.js"></script>
+    <script type="text/javascript" src="js/dolphin/opendolphin.js"></script>
+    <script type="text/javascript" src="js/app/api.js.jsp"></script>
 
     
     <script>
+        var odConfig = readDolphinConfig();
+        var ODAPI = odConfig.ODAPI
+
         var nameTextField;
         var greetingLabel;
         var greetButton;
 
         function setupBinding(dolphin) {
             // Get PMs and attributes:
-            var pm = dolphin.getAt("${'<%='}ApplicationConstants.PM_APP${'%>'}");
-            var att_name = pm.getAt("${'<%='}ApplicationConstants.ATT_NAME${'%>'}");
-            var att_greeting = pm.getAt("${'<%='}ApplicationConstants.ATT_GREETING${'%>'}");
+            var pm = dolphin.getAt(ODAPI.PM_ID);
+            var att_name = pm.getAt(ODAPI.ATT_NAME);
+            var att_greeting = pm.getAt(ODAPI.ATT_GREETING);
 
             // Get hold to widgets:
             nameTextField = document.getElementById("nameTextField");
@@ -32,7 +34,7 @@ ${'<%'}@ page import="${PKG}.ApplicationConstants" ${'%>'}
             greetButton = document.getElementById("greetButton");
 
             greetButton.onclick = function () {
-                dolphin.send("${'<%='}ApplicationConstants.COMMAND_GREET${'%>'}");
+                dolphin.send(ODAPI.COMMAND_GREET);
             };
 
             // Bindings:
@@ -58,9 +60,9 @@ ${'<%'}@ page import="${PKG}.ApplicationConstants" ${'%>'}
 
 
         // Get PMs and attributes:
-        var dolphin = opendolphin.dolphin("${'<%='}application.getContextPath()${'%>'}/dolphin/", true);
+        var dolphin = opendolphin.dolphin(odConfig.DOLPHIN_URL, true);
 
-        dolphin.send("${'<%='}ApplicationConstants.COMMAND_INIT${'%>'}", {
+        dolphin.send(ODAPI.COMMAND_INIT, {
             onFinished: function(pms) {
                 setupBinding(dolphin);
             }
