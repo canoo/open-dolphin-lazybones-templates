@@ -13,6 +13,7 @@ props.'_<%=' = "<%="
 processRootTemplate(props, props.PROJECT_DIR_NAME,
 	['**/README.adoc', '**/build.gradle', '**/gradle.properties', 'src/main/webapp/WEB-INF/web.xml', 'src/main/webapp/**/*.jsp']
 )
+processRootTemplate(props, props.PROJECT_DIR_NAME, ['src/main/java/**/*'])
 
 Map readInputForRootTemplate() {
 	Map props = [:]
@@ -37,7 +38,6 @@ def processRootTemplate(def props, String projectDirName, List<String> filenameP
 	filenamePatterns.each { processTemplates it, props }
 
 	// Copy 'src' folder:
-/*
 	File targetDir = new File(projectDirName, 'src/main/java')
 	String packagePath = props.PKG.replace('.' as char, '/' as char)
 	File targetPath = new File(targetDir, packagePath)
@@ -47,7 +47,6 @@ def processRootTemplate(def props, String projectDirName, List<String> filenameP
 	sourcesDir.eachFile { File file ->
 	   file.renameTo("${targetPath.absolutePath}/${file.name}")
 	}
-*/
 }
 
 def ask2(key, proposal) {
