@@ -50,7 +50,8 @@ You can see this list with the command +lazybones list+.
 
 The following sections will help you setup a new Open-Dolphin project. You will end up with a simple hello world GUI connected to the server.
 
-=== Run Main Template
+=== Setup the project structure
+
 First let us create a new folder and cd into it
 
 [source]
@@ -60,19 +61,16 @@ cd hello_dolphin
 ----
 
 For our first example we will create a JavaFX client which will use a service of the server side to display a hello world greeting.
-Therefore we need the following modules: +dolphin-client-javafx-java+, +dolphin-combined-java+, +dolphin-server-java+ and
-+dolphin-shared-java+. Create the modules as follows (and confirm the questions for _group_, _version_ and _packageName_ with the +enter+ key):
+Therefore we need the following modules: +dolphin-client-javafx-java+, +dolphin-combined-java+, +dolphin-server-java+,
++dolphin-shared-java+ and +dolphin-server-webapp+. Create the modules as follows (and confirm the questions for _group_, _version_ and _packageName_ with the +enter+ key):
 
 [source]
 ----
 lazybones create dolphin-client-javafx-java client
-...
 lazybones create dolphin-combined-java combined
-...
 lazybones create dolphin-server-java server
-...
 lazybones create dolphin-shared-java shared
-
+lazybones create dolphin-server-webapp webapp
 ----
 
 Then cd into the +combined+ folder and you should see the familiar files of a gradle based project:
@@ -96,7 +94,7 @@ You can run the application in two modes: the _development_ mode and the _remote
 
 === Development mode
 
-To run it in _development_ mode make sure you are in the +combined+ folder. Then invoke:
+To run it in _development_ mode make sure you are in the +combined+ folder and invoke:
 
 -----
 ./gradlew :run
@@ -112,19 +110,13 @@ Running the application this way (especially with an IDE) is most convenient for
 
 === Remote mode
 
-To run the application in remote mode you need to generate the +webapp+ module:
-
-[source]
-----
-lazybones create dolphin-server-webapp webapp
-----
-
-This module contains an embedded Jetty server which will run the application's war file which got created from the
+To run the application in remote mode you need we use the `webapp` module which we already have created.
+It contains an embedded Jetty server which will run the application's war file which got created from the
 modules +shared+, +server+ and +webapp+.
 
 * If still running from the development mode stop the JavaFX GUI now.
 
-To run it in _remote_ mode open two terminals. In the first one cd into +webapp+ and invoke:
+* Open two terminals. In the first one cd into +webapp+ and invoke:
 -----
 ./gradlew --info :jettyRun
 -----
@@ -220,6 +212,16 @@ lazybones create dolphin-client-javafx-java client
 lazybones create dolphin-combined-java combined
 lazybones create dolphin-server-java server
 lazybones create dolphin-shared-java shared
+lazybones create dolphin-server-webapp webapp
+----
+
+[source]
+.Complete Groovy setup
+----
+lazybones create dolphin-client-javafx-groovy client
+lazybones create dolphin-combined-groovy combined
+lazybones create dolphin-server-groovy server
+lazybones create dolphin-shared-groovy shared
 lazybones create dolphin-server-webapp webapp
 ----
 
