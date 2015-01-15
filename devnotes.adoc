@@ -49,9 +49,19 @@ lb --logLevel=FINE generate -PmoduleName=server dolphin-server-java
 [source]
 .Complete Java setup
 ----
-lazybones create dolphin-client-javafx-java 0.0.2 client
-lazybones create dolphin-combined-java 0.0.1 combined
-lazybones create dolphin-server-java 0.0.2 server
-lazybones create dolphin-shared-java 0.0.2 shared
-lazybones create dolphin-server-webapp 0.0.2 webapp
+lazybones create -Pdv dolphin-client-javafx-java 0.0.3 client
+lazybones create -Pdv dolphin-combined-java 0.0.2 combined
+lazybones create -Pdv dolphin-server-java 0.0.3 server
+lazybones create -Pdv dolphin-shared-java 0.0.3 shared
 ----
+
+[source]
+.g.groovy
+----
+"lazybones create -Pdv dolphin-client-javafx-java 0.0.3 client".execute()
+"lazybones create -Pdv dolphin-combined-java 0.0.2 combined".execute()
+"lazybones create -Pdv dolphin-server-java 0.0.3 server".execute()
+"lazybones create -Pdv dolphin-shared-java 0.0.3 shared".execute()
+"lazybones create -Pdv dolphin-server-webapp 0.0.3 webapp".execute()
+----
+
