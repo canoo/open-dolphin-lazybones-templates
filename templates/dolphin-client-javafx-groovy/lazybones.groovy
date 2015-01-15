@@ -44,6 +44,8 @@ def processRootTemplate(def props, String projectDirName, List<String> filenameP
 }
 
 def ask2(key, proposal) {
+	boolean useDefaultValues = binding.hasVariable('dv')
+	println "setting '$key'='proposal'" // todo: when lazybones 0.9 is available use log.info instead of println
+	if (useDefaultValues) binding.setVariable(key, proposal)
 	ask("Define value for '$key' [$proposal]: ", proposal, key)
 }
-

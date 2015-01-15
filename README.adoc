@@ -66,12 +66,15 @@ Therefore we need the following modules: +dolphin-client-javafx-java+, +dolphin-
 
 [source]
 ----
-lazybones create dolphin-client-javafx-java client
-lazybones create dolphin-combined-java combined
-lazybones create dolphin-server-java server
-lazybones create dolphin-shared-java shared
-lazybones create dolphin-server-webapp webapp
+lazybones create -Pdv dolphin-client-javafx-java client
+lazybones create -Pdv dolphin-combined-java combined
+lazybones create -Pdv dolphin-server-java server
+lazybones create -Pdv dolphin-shared-java shared
+lazybones create -Pdv dolphin-server-webapp webapp
 ----
+
+NOTE: the option `-Pdv` causes default values to be applied for _group_ (_org.group_), _version_ (_0.1.0-SNAPSHOT) and _packageName_ (_org.group_). If
+you would like to specify these properties interactively do not use this parameter. Another option is to define the values on the commandline using `-Pgroup=org.mygroup` for example.
 
 Then cd into the +combined+ folder and you should see the familiar files of a gradle based project:
 
