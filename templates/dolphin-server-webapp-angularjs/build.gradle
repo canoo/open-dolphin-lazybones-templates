@@ -1,5 +1,14 @@
+buildscript {
+  repositories {
+    jcenter()
+  }
+  dependencies {
+    classpath "org.akhikhl.gretty:gretty:1.1.8"
+  }
+}
+
 apply plugin : 'war'
-apply plugin : 'jetty'
+apply plugin: 'org.akhikhl.gretty'
 
 repositories {
     mavenCentral()
@@ -16,7 +25,9 @@ war {
     archiveName='application.war'
 }
 
-jettyRun {
-    contextPath = 'appContext'
+gretty {
+  contextPath = '/appContext'
+  //port = 8081
+  scanInterval = 0
 }
 
