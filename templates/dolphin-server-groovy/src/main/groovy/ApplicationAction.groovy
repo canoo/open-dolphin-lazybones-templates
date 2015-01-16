@@ -5,7 +5,7 @@ import org.opendolphin.core.server.Slot
 import org.opendolphin.core.server.action.DolphinServerAction
 import org.opendolphin.core.server.comm.ActionRegistry
 
-import static org.group.ApplicationConstants.*
+import static ${PKG}.ApplicationConstants.*
 
 public class ApplicationAction extends DolphinServerAction {
 
