@@ -18,7 +18,6 @@ repositories {
 dependencies {
     compile project(':server')
     compile project(':shared')
-    compile 'javax.servlet:servlet-api:2.5'
 }
 
 war {

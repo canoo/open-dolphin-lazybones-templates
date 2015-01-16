@@ -7,6 +7,7 @@ repositories {
 }
 
 dependencies {
+	compile ("org.codehaus.groovy:groovy-all:2.3.6") {force = true} // needed bc. of dependency-conflict between open-dolphin and (? groovy-all of gradle when running jetty ?)
     compile project(':server')
     compile project(':shared')
 }
