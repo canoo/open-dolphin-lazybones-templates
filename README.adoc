@@ -21,18 +21,18 @@ Add the following entry to your +$HOME/.lazybones/config.groovy+ file
 
 -----------
 bintrayRepositories = [
-    "opendolphin/lazybones-templates"
+  "opendolphin/lazybones-templates"
 ]
 -----------
 
 
 == Installation of Lazybones without gvm
-Grab the distribution from https://bintray.com/pkg/show/general/pledbrook/lazybones-templates/lazybones[Bintray], unpack it to a local directory, and then add its +bin+ directory to your PATH environment variable.
+Grab the distribution from https://bintray.com/pkg/show/general/pledbrook/lazybones-templates/lazybones[Bintray], unpack it to a local directory, and then add its `bin` directory to your PATH environment variable.
 
 == Usage
 Since Open-Dolphin is independent from any framework or library it can be used together with many frontend and backend technologies. This is the reason
 why there is not just one single template for project creation. You can choose whether your project should be java or groovy based and you may also choose which technology you would like to use. Currently there is a template for JavaFX and a HTML5 frontend
-is included in the _server_ submodule. Here is a list of all currently available templates:
+is included in the _webapp_ submodule. Here is a list of all currently available templates:
 
 * dolphin-client-javafx-groovy
 * dolphin-client-javafx-java
@@ -46,7 +46,7 @@ is included in the _server_ submodule. Here is a list of all currently available
 * dolphin-shared-groovy
 * dolphin-shared-java
 
-You can see this list with the command +lazybones list+.
+You can see this list with the command `lazybones list`.
 
 The following sections will help you setup a new Open-Dolphin project. You will end up with a simple hello world GUI connected to the server.
 
@@ -61,8 +61,8 @@ cd hello_dolphin
 ----
 
 For our first example we will create a JavaFX client which will use a service of the server side to display a hello world greeting.
-Therefore we need the following modules: +dolphin-client-javafx-java+, +dolphin-combined-java+, +dolphin-server-java+,
-+dolphin-shared-java+ and +dolphin-server-webapp+. Create the modules as follows (and confirm the questions for _group_, _version_ and _packageName_ with the +enter+ key):
+Therefore we need the following modules: `dolphin-client-javafx-java`, `dolphin-combined-java`, `dolphin-server-java`,
+`dolphin-shared-java` and `dolphin-server-webapp`. Create the modules as follows:
 
 [source]
 ----
@@ -73,10 +73,30 @@ lazybones create -Pdv dolphin-shared-java shared
 lazybones create -Pdv dolphin-server-webapp webapp
 ----
 
-NOTE: the option `-Pdv` causes default values to be applied for _group_ (_org.group_), _version_ (_0.1.0-SNAPSHOT) and _packageName_ (_org.group_). If
-you would like to specify these properties interactively do not use this parameter. Another option is to define the values on the commandline using `-Pgroup=org.mygroup` for example.
+[NOTE]
+====
+What does `-Pdv` mean?
 
-Then cd into the +combined+ folder and you should see the familiar files of a gradle based project:
+Usually lazybones asks the user to enter values of template's parameters. To get our example up and running as quickly as possible
+we want to work with the default values.
+
+The option `-Pdv` means that the default values for parameters are applied:
+
+[width="40%"]
+|====================
+|group   |org.group 
+|version |0.1.0-SNAPSHOT 
+|package |org.group
+|====================
+
+If you would like to specify these properties interactively simply do not use this parameter.
+
+A third possibility is is to specify the values on the commandline using `-Pgroup=org.mygroup` for example.
+
+====
+
+
+* cd into the +combined+ folder and you should see the familiar files of a gradle based project:
 
 [source,shell]
 ----
@@ -89,7 +109,19 @@ settings.gradle
 src
 ----
 
+At this moment the setup of our project is complete and our directory structure looks as follows
 
+[source,java]
+----
+hello_dolphin
+├── client
+├── combined
+├── server
+├── shared
+└── webapp
+----
+
+Next we will run the application.
 
 == Running the application
 
@@ -97,7 +129,7 @@ You can run the application in two modes: the _development_ mode and the _remote
 
 === Development mode
 
-To run it in _development_ mode make sure you are in the +combined+ folder and invoke:
+To run it in _development_ mode make sure you are in the *combined* folder and invoke:
 
 -----
 ./gradlew :run
@@ -115,16 +147,19 @@ Running the application this way (especially with an IDE) is most convenient for
 
 To run the application in remote mode you need we use the `webapp` module which we already have created.
 It contains an embedded Jetty server which will run the application's war file which got created from the
-modules +shared+, +server+ and +webapp+.
+modules `shared`, `server` and `webapp`.
 
 * If still running from the development mode stop the JavaFX GUI now.
 
-* Open two terminals. In the first one cd into +webapp+ and invoke:
+* Open a terminal, cd into *webapp* and invoke:
 -----
-./gradlew --info :jettyRun
+./gradlew --info :appRun
 -----
 
-and in a second terminal cd into +client+ and invoke:
+NOTE: This will start an embedded jetty container (via the gradle plugin _gretty_). On the first run it will take a little longer
+as usual to start jetty since it's dependencies need to be downloaded.
+
+* Open a *second* terminal, cd into *client* and invoke:
 
 -----
 ./gradlew :run
@@ -135,13 +170,18 @@ Note that the client and the server communication messages now appear separately
 
 === HTML5 Frontend
 
-If you would like to develop a HTML5 frontend the project template comes with an example in form of a JSP: +webapp/src/main/webapp/hellodolphin.jsp+
-which you can use as a start. To try it out start jetty as described in the _remote mode_ :
+If you would like to develop a HTML5 frontend the project template comes with an example in form of a JSP: `webapp/src/main/webapp/hellodolphin.jsp`
+which you can use as a start. To try it out:
+
+* start jetty as described in the _remote mode_ :
+
 -----
-	./gradlew jettyRun
+  ./gradlew :appRun
 -----
 
-And then point your browser to http://localhost:8080/appContext/hellodolphin.jsp which will show a page which looks very similar to the JavaFX GUI we
+* point your browser to http://localhost:8080/appContext/hellodolphin.jsp
+
+This will show a page which looks very similar to the JavaFX GUI we
 already saw:
 
 image::doc/hello_dolphin_html5.png[]
@@ -164,7 +204,7 @@ Netbeans 8 users need to install the _Gradle Support_ plugin via +Tools/Plugins+
 works on the commandline and in IntelliJ IDEA.
 
 === Eclipse
-In the +hello_dolphin/combined+ folder invoke +./gradlew eclipse+. Start Eclipse and choose +File/Import+ from the menu bar and then +General/Existing Projects into Workspace+. Then select +hello_dolphin+ as the root directory and make sure to have selected the _Search for nested projects_ checkbox:
+In the +hello_dolphin/combined+ folder invoke `./gradlew eclipse`. Start Eclipse and choose +File/Import+ from the menu bar and then +General/Existing Projects into Workspace+. Then select +hello_dolphin+ as the root directory and make sure to have selected the _Search for nested projects_ checkbox:
 
 image::doc/eclipse_import_project_1.png[]
 
@@ -179,32 +219,6 @@ Now you have a running Open-Dolphin project setup which you can use to develop y
 For more information have a look at the http://open-dolphin.org/[Open-Dolphin webpage] and the Jumpstart tutorial at https://github.com/canoo/DolphinJumpStart[DolphinJumpStart]
 
 == Additional Information
-
-If you would like to pass the value for _moduleName_ on the commandline use the +-P+ parameter:
------
-lazybones create -Pgroup=org.mygroup dolphin-server-java server
------
-
-In case something went wrong during the application of the template setting the loglevel might help:
------
-lazybones --logLevel=FINE ...
------
-
-=== Gradle Project Structure
-To tie the individual modules together to form an application we use http://www.gradle.org/docs/current/userguide/multi_project_builds.html[gradle's multi project build facility] but adapted it a bit so
-that the root project does not have to be located in the top level folder but can be inside one of the modules like +combined+ or +client+.
-Have a look at the +combined/settings.gradle+ and +combined/build.gradle+ for example to see how they depend on each other.
-If necessery you can then adjust the dependencies according to your needs.
-
-Note that this way it is possible to have the individual project folders in any location you like. Technically each project is a multi module project and you can import each of them into your IDE where the dependent projects appear as well.
-
-=== Documentation to Other Open-Dolphin Templates
-
-* link:doc/gwt.adoc[Open-Dolphin GWT Template]
-* link:doc/angularjs.adoc[Open-Dolphin AngularJS Template]
-
-
-== Appendix
 
 === Popular module combinations
 
@@ -227,4 +241,69 @@ lazybones create dolphin-server-groovy server
 lazybones create dolphin-shared-groovy shared
 lazybones create dolphin-server-webapp webapp
 ----
+
+Using a groovy script it becomes even easier. Copy the following into a file called `j.groovy` adjust _group_, _version_, and _pkg_ and then call invoke it with: `groovy j.groovy`:
+
+[source,groovy]
+.j.groovy (for a Java setup)
+----
+def group = 'com.mycompany'
+def version = '1.0.0-SNAPSHOT'
+def pkg = "${group}"
+
+Map map = [
+  'client'  : 'dolphin-client-javafx-java',
+  'combined': 'dolphin-combined-java',
+  'server'  : 'dolphin-server-java',
+  'shared'  : 'dolphin-shared-java',
+  'webapp'  : 'dolphin-server-webapp',
+]
+
+map.each { k, v ->
+  "lazybones create -Pgroup=${group} -Pversion=${version} -Ppackage=${pkg} $v $k".execute()
+}
+----
+
+And here comes the equivalent for a groovy setup:
+
+[source,groovy]
+.j.groovy (for a Groovy setup)
+----
+def group = 'com.mycompany'
+def version = '1.0.0-SNAPSHOT'
+def pkg = "${group}"
+
+Map map = [
+  'client'  : 'dolphin-client-javafx-groovy',
+  'combined': 'dolphin-combined-groovy',
+  'server'  : 'dolphin-server-groovy',
+  'shared'  : 'dolphin-shared-groovy',
+  'webapp'  : 'dolphin-server-webapp',
+]
+
+map.each { k, v ->
+  "lazybones create -Pgroup=${group} -Pversion=${version} -Ppackage=${pkg} $v $k".execute()
+}
+----
+
+
+=== Gradle Project Structure
+To tie the individual modules together to form an application we use http://www.gradle.org/docs/current/userguide/multi_project_builds.html[gradle's multi project build facility] but adapted it a bit so
+that the root project does not have to be located in the top level folder but can be inside one of the modules like +combined+ or `client`.
+Have a look at the `combined/settings.gradle` and `combined/build.gradle` for example to see how they depend on each other.
+If necessery you can then adjust the dependencies according to your needs.
+
+Note that this way it is possible to have the individual project folders in any location you like. Technically each project is a multi module project and you can import each of them into your IDE where the dependent projects appear as well.
+
+=== Troubleshooting
+
+In case something went wrong during the application of the template setting the loglevel might help:
+-----
+lazybones --logLevel=FINE ...
+-----
+
+=== Documentation of other Open-Dolphin Templates
+
+* link:doc/gwt.adoc[Open-Dolphin GWT Template]
+* link:doc/angularjs.adoc[Open-Dolphin AngularJS Template]
 

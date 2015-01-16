@@ -33,35 +33,47 @@ lb --logLevel=FINE generate -PmoduleName=server dolphin-server-java
 
 = Usage
 
-== Create Project Folder
-
-* lazybones create open-dolphin 0.0.4 hello_dolphin
-* cd hello_dolphin
-* ./setup_for_java.sh or ./setup_for_groovy.sh
-
-== Run the application:
-./gradlew :combined:run
-
-== Appendix
-
-=== Popular module combinations
+=== Complete Java setup
 
 [source]
-.Complete Java setup
 ----
-lazybones create -Pdv dolphin-client-javafx-java 0.0.3 client
+lazybones create -Pdv dolphin-client-javafx-java 0.0.4 client
 lazybones create -Pdv dolphin-combined-java 0.0.2 combined
-lazybones create -Pdv dolphin-server-java 0.0.3 server
-lazybones create -Pdv dolphin-shared-java 0.0.3 shared
+lazybones create -Pdv dolphin-server-java 0.0.4 server
+lazybones create -Pdv dolphin-shared-java 0.0.4 shared
 ----
+
+All as one groovy script:
+
+[source]
+.j.groovy
+----
+"lazybones create -Pdv dolphin-client-javafx-java 0.0.4 client".execute()
+"lazybones create -Pdv dolphin-combined-java 0.0.2 combined".execute()
+"lazybones create -Pdv dolphin-server-java 0.0.4 server".execute()
+"lazybones create -Pdv dolphin-shared-java 0.0.4 shared".execute()
+"lazybones create -Pdv dolphin-server-webapp 0.0.4 webapp".execute()
+----
+
+=== Complete Groovy setup
+
+[source]
+----
+lazybones create -Pdv dolphin-client-javafx-groovy 0.0.4 client
+lazybones create -Pdv dolphin-combined-groovy 0.0.2 combined
+lazybones create -Pdv dolphin-server-groovy 0.0.4 server
+lazybones create -Pdv dolphin-shared-groovy 0.0.4 shared
+----
+
+All as one groovy script:
 
 [source]
 .g.groovy
 ----
-"lazybones create -Pdv dolphin-client-javafx-java 0.0.3 client".execute()
-"lazybones create -Pdv dolphin-combined-java 0.0.2 combined".execute()
-"lazybones create -Pdv dolphin-server-java 0.0.3 server".execute()
-"lazybones create -Pdv dolphin-shared-java 0.0.3 shared".execute()
-"lazybones create -Pdv dolphin-server-webapp 0.0.3 webapp".execute()
+"lazybones create -Pdv dolphin-client-javafx-groovy 0.0.4 client".execute()
+"lazybones create -Pdv dolphin-combined-groovy 0.0.2 combined".execute()
+"lazybones create -Pdv dolphin-server-groovy 0.0.4 server".execute()
+"lazybones create -Pdv dolphin-shared-groovy 0.0.4 shared".execute()
+"lazybones create -Pdv dolphin-server-webapp 0.0.4 webapp".execute()
 ----
 
