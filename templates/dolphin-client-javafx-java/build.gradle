@@ -20,7 +20,6 @@ dependencies {
     compile files("\$jfxLibDir/jfxrt.jar") // TODO: find out why this seems to be necessary even on JDK 8
     compile project(':shared')
     compile "org.open-dolphin:dolphin-client-javafx:\$dolphinVersion"
-    compile "org.codehaus.groovyfx:groovyfx:0.2" // TODO: update
     compile "org.open-dolphin:dolphin-client:\${dolphinVersion}"
 }
 
