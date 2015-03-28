@@ -20,21 +20,31 @@ repositories {
 			artifact '[module]-[revision](.[classifier]).[ext]'
 		}
 	}
+	ivy {
+		name 'angularjs'
+		url 'https://code.angularjs.org'
+		layout 'pattern', {
+			artifact '[revision]/[module](.[classifier]).[ext]'
+		}
+	}
 }
 
 configurations {
 	opendolphinjs
+	angularjs
 }
 
 dependencies {
     compile project(':server')
     compile project(':shared')
     opendolphinjs group: 'opendolphin', name: 'opendolphin', version: "\$dolphinJS_version", ext: 'js'
+    angularjs group: 'angularjs', name: 'angular', version: "$ANGULAR_JS_VERSION", classifier: 'min', ext: 'js'
 }
 
 task fetchWebappArtifacts(type: Copy) {
 	from configurations.opendolphinjs
-	into "\$webAppDir/generated/js/dolphin/"
+	from configurations.angularjs
+	into "\$webAppDir/generated/js/"
 }
 
 war {

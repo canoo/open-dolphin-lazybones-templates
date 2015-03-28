@@ -6,8 +6,8 @@
 	<link rel="stylesheet" href="libs/bootstrap/bootstrap-3.1.1-dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="libs/bootstrap/bootstrap-3.1.1-dist/css/bootstrap-theme.min.css">
 
-	<script type="text/javascript" src="libs/angularjs/1.2.21/angular.min.js"></script>
-    <script type="text/javascript" src="generated/js/dolphin/opendolphin-${OPEN_DOLPHIN_JS_VERSION}.js"></script>
+	<script type="text/javascript" src="generated/js/angular-${ANGULAR_JS_VERSION}-min.js"></script>
+    <script type="text/javascript" src="generated/js/opendolphin-${OPEN_DOLPHIN_JS_VERSION}.js"></script>
 
 	<script type="text/javascript" src="js/dolphin/ng-opendolphin.js"></script>
 
