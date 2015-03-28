@@ -37,6 +37,7 @@ configurations {
 dependencies {
     compile project(':server')
     compile project(':shared')
+    compile 'org.webjars:bootstrap:3.3.1'
     opendolphinjs group: 'opendolphin', name: 'opendolphin', version: "\$dolphinJS_version", ext: 'js'
     angularjs group: 'angularjs', name: 'angular', version: "$ANGULAR_JS_VERSION", classifier: 'min', ext: 'js'
 }

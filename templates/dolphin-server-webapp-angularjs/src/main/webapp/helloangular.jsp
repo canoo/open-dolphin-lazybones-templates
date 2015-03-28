@@ -3,8 +3,8 @@
 <head>
     <title></title>
 
-	<link rel="stylesheet" href="libs/bootstrap/bootstrap-3.1.1-dist/css/bootstrap.min.css">
-	<link rel="stylesheet" href="libs/bootstrap/bootstrap-3.1.1-dist/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="webjars/bootstrap/3.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="webjars/bootstrap/3.3.1/css/bootstrap-theme.min.css">
 
 	<script type="text/javascript" src="generated/js/angular-${ANGULAR_JS_VERSION}-min.js"></script>
     <script type="text/javascript" src="generated/js/opendolphin-${OPEN_DOLPHIN_JS_VERSION}.js"></script>
