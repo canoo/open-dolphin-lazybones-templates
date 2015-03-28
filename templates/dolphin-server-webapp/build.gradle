@@ -13,11 +13,28 @@ apply plugin: 'org.akhikhl.gretty'
 repositories {
     mavenCentral()
     mavenLocal()
+	ivy {
+		name 'OpenDolphinJS'
+		url 'http://dl.bintray.com/opendolphin/resources/'
+		layout 'pattern', {
+			artifact '[module]-[revision](.[classifier]).[ext]'
+		}
+	}
+}
+
+configurations {
+	opendolphinjs
 }
 
 dependencies {
     compile project(':server')
     compile project(':shared')
+    opendolphinjs group: 'opendolphin', name: 'opendolphin', version: "\$dolphinJS_version", ext: 'js'
+}
+
+task fetchWebappArtifacts(type: Copy) {
+	from configurations.opendolphinjs
+	into "\$webAppDir/generated/js/dolphin/"
 }
 
 war {
@@ -27,5 +44,13 @@ war {
 gretty {
   contextPath = '/appContext'
   //port = 8081
-  //scanInterval = 0
+  scanInterval = 2
+}
+
+project.afterEvaluate {
+	// Let gretty-tasks depend on 'fetchWebappArtifacts'. Note: this cannot be done with:
+	//  tasks.findAll { task -> ['appRun', 'appRunWar', 'war'].contains(task.name) }*.dependsOn fetchWebappArtifacts
+	// do to how the gretty plugin is implemented. Therefore it is done in this 'project.afterEvaluate':
+
+	[appRun, appRunWar, war]*.dependsOn fetchWebappArtifacts
 }

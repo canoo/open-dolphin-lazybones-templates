@@ -27,6 +27,6 @@ war {
 gretty {
   contextPath = '/appContext'
   //port = 8081
-  //scanInterval = 0
+  scanInterval = 2
 }
 

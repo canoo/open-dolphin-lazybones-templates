@@ -9,8 +9,8 @@
 	<link rel="stylesheet" href="bootstrap/bootstrap-3.1.1-dist/css/bootstrap-theme.min.css">
 
     <title>Hello Dolphin</title>
-    <!-- refer to OpenDolphin, see also http://open-dolphin.org/dolphin_website/Download.html -->
-    <script type="text/javascript" src="js/dolphin/opendolphin.js"></script>
+    <!-- see build.gradle on how js artifacts are downloaded -->
+    <script type="text/javascript" src="generated/js/dolphin/opendolphin-${OPEN_DOLPHIN_JS_VERSION}.js"></script>
     <script type="text/javascript" src="js/app/api.js.jsp"></script>
 
     
