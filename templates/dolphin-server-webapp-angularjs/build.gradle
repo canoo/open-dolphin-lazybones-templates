@@ -20,13 +20,6 @@ repositories {
 			artifact '[module]-[revision](.[classifier]).[ext]'
 		}
 	}
-	ivy {
-		name 'angularjs'
-		url 'https://code.angularjs.org'
-		layout 'pattern', {
-			artifact '[revision]/[module](.[classifier]).[ext]'
-		}
-	}
 }
 
 configurations {
@@ -45,7 +38,6 @@ dependencies {
 
 task fetchWebappArtifacts(type: Copy) {
 	from configurations.opendolphinjs
-	from configurations.angularjs
 	into "\$webAppDir/generated/js/"
 }
 
