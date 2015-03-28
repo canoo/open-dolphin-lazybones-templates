@@ -5,8 +5,8 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<link rel="stylesheet" href="bootstrap/bootstrap-3.1.1-dist/css/bootstrap.min.css">
-	<link rel="stylesheet" href="bootstrap/bootstrap-3.1.1-dist/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="webjars/bootstrap/3.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="webjars/bootstrap/3.3.1/css/bootstrap-theme.min.css">
 
     <title>Hello Dolphin</title>
     <!-- see build.gradle on how js artifacts are downloaded -->
