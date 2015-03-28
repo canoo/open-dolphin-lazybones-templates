@@ -24,7 +24,6 @@ repositories {
 
 configurations {
 	opendolphinjs
-	angularjs
 }
 
 dependencies {
@@ -33,6 +32,7 @@ dependencies {
     compile 'org.webjars:bootstrap:3.3.1'
     compile 'org.webjars:angularjs:1.2.21'
     opendolphinjs group: 'opendolphin', name: 'opendolphin', version: "\$dolphinJS_version", ext: 'js'
+    opendolphinjs group: 'opendolphin', name: 'ng-opendolphin', version: "\$dolphinJS_version", ext: 'js'
 }
 
 task fetchWebappArtifacts(type: Copy) {

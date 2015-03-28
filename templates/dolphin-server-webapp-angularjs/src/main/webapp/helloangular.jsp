@@ -8,8 +8,7 @@
 
 	<script type="text/javascript" src="webjars/angularjs/${ANGULAR_JS_VERSION}/angular.min.js"></script>
     <script type="text/javascript" src="generated/js/opendolphin-${OPEN_DOLPHIN_JS_VERSION}.js"></script>
-
-	<script type="text/javascript" src="js/dolphin/ng-opendolphin.js"></script>
+	<script type="text/javascript" src="generated/js/ng-opendolphin-${OPEN_DOLPHIN_JS_VERSION}.js"></script>
 
 	<script type="text/javascript" src="js/app/api.js.jsp"></script>
 	<script type="text/javascript" src="js/app/app.js"></script>
