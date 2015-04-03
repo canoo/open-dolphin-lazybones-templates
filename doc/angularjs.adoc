@@ -2,11 +2,13 @@
 
 Use this project template if you would like to combine Open-Dolphin with AngularJS.
 
+You can find an example project which was built using this template at https://github.com/svene/open-dolphin-examples/tree/master/od_angular_js
+
 == Usage Instructions
 
 * If not done already install `lazybones` as described here in https://github.com/canoo/open-dolphin-lazybones-templates/blob/master/README.adoc
 * Create a new empty folder (say `hello_dolphin`) and cd into it
-* In `hello_dolphin` first create the the shared and server projects by invoking (confirm all questions with enter):
+* In `hello_dolphin` first create the shared and server projects by invoking (confirm all questions with enter):
 ** `lazybones create dolphin-shared-java shared`
 ** `lazybones create dolphin-server-java server`
 * And then also in `hello_dolphin` create a new project folder for angular by invoking
@@ -15,6 +17,8 @@ Use this project template if you would like to combine Open-Dolphin with Angular
 * point your browser at `http://localhost:8080/appContext/helloangular.jsp`. The well known greet page should appear. Put a name in the text field and press the greet button.
 
 This should give you a start into using Open-Dolphin together with AngularJS.
+
+== Under the hood
 
 == Under the hood
 
