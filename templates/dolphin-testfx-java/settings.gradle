@@ -1,0 +1,16 @@
+rootProject.name = 'testfx'
+
+includeFrom 'combined', '../combined'
+includeFrom 'client', '../client'
+includeFrom 'server', '../server'
+includeFrom 'shared', '../shared'
+
+def includeFrom(String name, String path, String buildFilename = null) {
+	include ":${name}"
+	ProjectDescriptor projectDescriptor = project(":${name}")
+	projectDescriptor.projectDir = new File(path)
+	if (buildFilename) {
+		projectDescriptor.buildFileName = buildFilename
+	}
+	
+}

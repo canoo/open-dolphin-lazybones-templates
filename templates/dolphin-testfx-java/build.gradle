@@ -1,0 +1,30 @@
+//
+// Run TestFX tests in combined and remote mode: './gradlew :test :testRemote'
+//
+
+apply plugin: 'java'
+apply plugin: 'maven'
+
+repositories {
+    jcenter()
+    mavenLocal()
+}
+
+dependencies {
+    compile project(":client")
+    compile project(":combined")
+    compile "org.testfx:testfx-core:4.0.1-alpha"
+    compile "org.testfx:testfx-junit:4.0.1-alpha"
+}
+
+task testRemote(type: Test) {
+    reports.html.destination = file("\$buildDir/reports/remote/html")
+    reports.junitXml.destination = file("\$buildDir/reports/remote/xml")
+}
+
+test.doFirst {
+    systemProperty 'mode', 'combined'
+}
+testRemote.doFirst {
+    systemProperty 'mode', 'remote'
+}
