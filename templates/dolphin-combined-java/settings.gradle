@@ -1,3 +1,4 @@
+rootProject.name = 'dolphin-combined-java'
 
 includeFrom 'client', '../client'
 includeFrom 'server', '../server'

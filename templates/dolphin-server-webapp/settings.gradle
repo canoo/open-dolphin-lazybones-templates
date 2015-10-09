@@ -1,3 +1,4 @@
+rootProject.name = 'dolphin-server-webapp'
 
 includeFrom 'shared', '../shared'
 includeFrom 'server', '../server'
