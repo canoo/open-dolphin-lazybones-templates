@@ -27,11 +27,11 @@ class MainView {
 			def sgb = delegate
 
 			stage title:'Application Title', {
-				scene(fill: GREEN, width: 300, height: 300) {
+				scene(fill: GREEN, width: 300, height: 300, stylesheets: ['/app.css']) {
 					vbox(padding: 10) {
-						nameTextField = textField()
-						btn = button(text: 'Greet')
-						greetingLabel = label(text: '', font: '20pt verdana', textFill: WHITE)
+						nameTextField = textField(id: 'greet_button')
+						btn = button(id: 'greet_button', text: 'Greet')
+						greetingLabel = label(id: 'greet_button', text: '', font: '20pt verdana', textFill: WHITE)
 					}
 				}
 			}
