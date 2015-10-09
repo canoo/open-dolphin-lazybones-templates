@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="webjars/bootstrap/3.3.1/css/bootstrap-theme.min.css">
 
 	<script type="text/javascript" src="webjars/angularjs/${ANGULAR_JS_VERSION}/angular.min.js"></script>
-    <script type="text/javascript" src="generated/js/opendolphin-${OPEN_DOLPHIN_JS_VERSION}.js"></script>
+    <script type="text/javascript" src="webjars/org/opendolphin/${OPEN_DOLPHIN_JS_VERSION}/opendolphin.js"></script>
 	<script type="text/javascript" src="webjars/org/opendolphin/${OPEN_DOLPHIN_NG_VERSION}/opendolphin-ng.js"></script>
 
 	<script type="text/javascript" src="js/app/api.js.jsp"></script>

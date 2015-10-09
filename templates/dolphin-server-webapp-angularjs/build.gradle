@@ -14,19 +14,8 @@ repositories {
     mavenCentral()
     mavenLocal()
     maven { url 'http://dl.bintray.com/opendolphin/mavenrepo' }
-
-	ivy {
-		name 'OpenDolphinJS'
-		url 'http://dl.bintray.com/opendolphin/resources/'
-		layout 'pattern', {
-			artifact '[module]-[revision](.[classifier]).[ext]'
-		}
-	}
 }
 
-configurations {
-	opendolphinjs
-}
 
 dependencies {
     compile project(':server')
@@ -34,12 +23,7 @@ dependencies {
     compile 'org.webjars:bootstrap:3.3.1'
     compile 'org.webjars:angularjs:1.2.21'
     compile 'org.open-dolphin:open-dolphin-ng:${OPEN_DOLPHIN_NG_VERSION}'
-    opendolphinjs group: 'opendolphin', name: 'opendolphin', version: "\$dolphinJS_version", ext: 'js'
-}
-
-task fetchWebappArtifacts(type: Copy) {
-	from configurations.opendolphinjs
-	into "\$webAppDir/generated/js/"
+    compile 'org.open-dolphin:client-javascript:${OPEN_DOLPHIN_JS_VERSION}'
 }
 
 war {
@@ -50,12 +34,4 @@ gretty {
   contextPath = '/appContext'
   //port = 8081
   scanInterval = 2
-}
-
-project.afterEvaluate {
-	// Let gretty-tasks depend on 'fetchWebappArtifacts'. Note: this cannot be done with:
-	//  tasks.findAll { task -> ['appRun', 'appRunWar', 'war'].contains(task.name) }*.dependsOn fetchWebappArtifacts
-	// do to how the gretty plugin is implemented. Therefore it is done in this 'project.afterEvaluate':
-
-	[appRun, appRunWar, war]*.dependsOn fetchWebappArtifacts
 }

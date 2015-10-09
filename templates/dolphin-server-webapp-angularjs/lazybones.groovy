@@ -27,8 +27,8 @@ Map readInputForRootTemplate() {
 	props.VERSION = ask2('version', '0.1.0-SNAPSHOT')
 	props.PKG = ask2('packageName', props.GROUP)
 
-	props.OPEN_DOLPHIN_JS_VERSION = '0.12.0B1'
-	props.OPEN_DOLPHIN_NG_VERSION = '0.12.0B1'
+	props.OPEN_DOLPHIN_JS_VERSION = '1.0-RC2B3'
+	props.OPEN_DOLPHIN_NG_VERSION = '1.0-RC2B3'
 	props.ANGULAR_JS_VERSION = '1.2.21'
 
 	props.PROJECT_CAPITALIZED_NAME = props.PROJECT_NAME.capitalize()

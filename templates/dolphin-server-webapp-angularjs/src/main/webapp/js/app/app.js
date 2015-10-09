@@ -1,7 +1,8 @@
 angular.module('app', ['OpenDolphin']);
 
-angular.module('app').config(function ($dolphinConfigProvider) {
+angular.module('app').config(function ($dolphinConfigProvider, $dolphinBuilderProvider) {
 	$dolphinConfigProvider.configure(readDolphinConfig());
+	$dolphinBuilderProvider.useBuilder(newDolphinBuilder());
 });
 
 
