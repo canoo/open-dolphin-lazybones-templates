@@ -3,8 +3,9 @@
 == Template Development Instructions
 
 * Make a change in a template, e.g. +templates/dolphin-client-javafx-java+
-* In the top folder execute +./gradlew installTemplateXYZ+ which will install the template into +~/.lazybones/templates/XYZ....zip+
-* In an arbitrary directory execute +lazybones createXYZ 0.0.6 <modulename>+ which will create the folder +<modulename>+ and expand the template into it.
+* In the top folder execute `./gradlew installTemplateXYZ` which will install the template into `~/.lazybones/templates/XYZ....zip`
+(alternatively call `./gradlew installAllTemplates`)
+* In an arbitrary directory execute +lazybones createXYZ <NEW-VERSION-NUMBER> <modulename>+ which will create the folder +<modulename>+ and expand the template into it.
 * Test the generated module and repeat the previous steps until you are satisfied with the result
 
 == Publishing
@@ -77,3 +78,14 @@ All as one groovy script:
 "lazybones create -Pdv dolphin-server-webapp 0.0.4 webapp".execute()
 ----
 
+=== Testing
+
+==== Java
+
+* call `groovy j.groovy`
+...
+
+==== Groovy
+
+* call `groovy g.groovy`
+...
