@@ -9,14 +9,14 @@
     <link rel="stylesheet" href="webjars/bootstrap/3.3.1/css/bootstrap-theme.min.css">
 
     <title>Hello Dolphin</title>
-    <!-- see build.gradle on how js artifacts are downloaded -->
-    <script type="text/javascript" src="generated/js/dolphin/opendolphin-${OPEN_DOLPHIN_JS_VERSION}.js"></script>
+
+    <script type="text/javascript" src="webjars/org/opendolphin/1.0-RC2B3/opendolphin.js"></script>
     <script type="text/javascript" src="js/app/api.js.jsp"></script>
 
     
     <script>
         var odConfig = readDolphinConfig();
-        var ODAPI = odConfig.ODAPI
+        var ODAPI = odConfig.ODAPI;
 
         var nameTextField;
         var greetingLabel;
@@ -58,9 +58,10 @@
             });
         }
 
-
-        // Get PMs and attributes:
-        var dolphin = opendolphin.dolphin(odConfig.DOLPHIN_URL, true);
+        var dolphin = opendolphin.makeDolphin()
+            .url(odConfig.DOLPHIN_URL)
+            .reset(true)
+            .build();
 
         dolphin.send(ODAPI.COMMAND_INIT, {
             onFinished: function(pms) {
