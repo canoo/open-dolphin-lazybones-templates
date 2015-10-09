@@ -41,6 +41,7 @@ public class Application extends javafx.application.Application {
         initializePMs();
 
         Scene scene = new Scene(root, 300, 300);
+        scene.getStylesheets().add(getClass().getResource("/app.css").toExternalForm());
         scene.setFill(Color.GREEN);
         stage.setScene(scene);
         stage.setTitle(getClass().getName());
@@ -53,8 +54,11 @@ public class Application extends javafx.application.Application {
         vBox.setPadding(new Insets(10));
         vBox.setSpacing(10);
         button = new Button();
+        button.setId("greet_button");
         nameTextField = new TextField();
+        nameTextField.setId("name_textfield");
         greetingLabel = new Label("");
+        greetingLabel.setId("greeting_label");
         greetingLabel.setTextFill(Color.WHITE);
         greetingLabel.setFont(Font.font ("Verdana", 20));
 
