@@ -24,7 +24,13 @@ public class MainApplication implements EntryPoint {
 
 	public void initialize() {
 		// 1: Bootstrap Dolphin:
-        final ClientDolphin clientDolphin = OpenDolphin.dolphin(DOLPHIN_URL, true, 0);
+		final ClientDolphin clientDolphin = new DolphinBuilder()
+			.url(DOLPHIN_URL)
+			.reset(true)
+			.slackMS(0)
+			//.supportCORS(true) // enable if you need CORS support
+			.build()
+			;
 
 		// 2: Initialize View:
         final MainView view = new MainView().initialize();

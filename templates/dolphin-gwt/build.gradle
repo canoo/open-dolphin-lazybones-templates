@@ -31,7 +31,8 @@ dependencies {
 	compile project(':shared')
 	compile project(':server')
 
-	compile ("org.codehaus.groovy:groovy-all:2.3.6") {force = true} // needed bc. of dependency-conflict between open-dolphin and (? groovy-all of gradle when running jetty ?)
+	// next line commented out since it is working with gradle 2.7. Line not deleted yet since problem might come back in a future version of gradle
+	//compile ("org.codehaus.groovy:groovy-all:2.3.6") {force = true} // needed bc. of dependency-conflict between open-dolphin and (? groovy-all of gradle when running jetty ?)
 	compile 'org.open-dolphin:dolphin-server:0.11'
 	compile ('com.google.gwt:gwt-servlet:2.6.0') {force = true} // explicit dependency just for IntelliJ since the IDE does not pick up the dependency from the gwt plugin
 	compile 'org.open-dolphin:open-dolphin-gwt:1.0-RC2B3'
