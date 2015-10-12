@@ -4,16 +4,16 @@ These project templates make it very easy to create new Open-Dolphin application
 
 == Installation of Lazybones using gvm (Linux, OS/X)
 
-Install gvm:
+Install sdkman (new name of gvm, see also http://sdkman.io/ ):
 
 -----------
-$ curl -s get.gvmtool.net | bash
+$ curl -s http://get.sdkman.io | bash
 -----------
 
 Install lazybones:
 
 -----------
-$ gvm install lazybones
+$ sdk install lazybones
 -----------
 
 Add the following entry to your +$HOME/.lazybones/config.groovy+ file
@@ -26,7 +26,7 @@ bintrayRepositories = [
 -----------
 
 
-== Installation of Lazybones without gvm
+== Installation of Lazybones without sdkman
 Grab the distribution from https://bintray.com/pkg/show/general/pledbrook/lazybones-templates/lazybones[Bintray], unpack it to a local directory, and then add its `bin` directory to your PATH environment variable.
 
 == Usage
@@ -204,12 +204,8 @@ Netbeans 8 users need to install the _Gradle Support_ plugin via +Tools/Plugins+
 works on the commandline and in IntelliJ IDEA.
 
 === Eclipse
-In the +hello_dolphin/combined+ folder invoke `./gradlew eclipse`. Start Eclipse and choose +File/Import+ from the menu bar and then +General/Existing Projects into Workspace+. Then select +hello_dolphin+ as the root directory and make sure to have selected the _Search for nested projects_ checkbox:
-
-image::doc/eclipse_import_project_1.png[]
-
-
-Press the _Finish_ button, open +ApplicationInMemoryStarter+ from the _combined_ project and run it. This should bring up the familiar Hello Dolphin GUI.
+Make sure the Eclipse plugin _Buildship_ is installed which makes the gradle integration into Eclipse very easy.
+See https://projects.eclipse.org/projects/tools.buildship for more details.
 
 Note that if you are not using JDK 8 but JDK 7 you might need to add the JavaFX jar +JAVA_HOME/jre/lib/jfxrt.jar+ to your classpath.
 
